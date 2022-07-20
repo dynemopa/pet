@@ -26,22 +26,23 @@
                     <h5 class="text-center mb-4">Registration Form</h5>
                     <form class="form-card" onsubmit="event.preventDefault()">
                         <div class="row justify-content-between text-left">
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">First name<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter your first name" onblur="validate(1)"> </div>
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Last name<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)"> </div>
-                        </div>
-                        <div class="row justify-content-between text-left">
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Primary email<span class="text-danger"> *</span></label> <input type="email" id="primary_email" name="primary_email" placeholder="" onblur="validate(3)"> </div>
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Phone number<span class="text-danger"> *</span></label> <input type="text" id="phone" name="phone" placeholder="" onblur="validate(4)"> </div>
-                        </div>
-                        <div class="row justify-content-between text-left">
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Secondary email<span class="text-danger"> *</span></label> <input type="email" id="secondary_email" name="secondary_email" placeholder="" onblur="validate(5)"> </div>
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Fax Number<span class="text-danger"> *</span></label> <input type="number" id="fax_number" name="fax_number" placeholder="" onblur="validate(5)"> </div>
-                        </div>
-                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">name<span class="text-danger"> *</span></label> <input type="text" id="name" name="name" placeholder="Enter your name" onblur="validate(1)"> </div>
                             <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3"> Address </Cite><span class="text-danger"> *</span></label> <input type="text" id="address" name="address" placeholder="" onblur="validate(5)"> </div>
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">City<span class="text-danger"> *</span></label> <input type="text" id="city" name="city" placeholder="" onblur="validate(5)"> </div>
+                            {{-- <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Last name<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)"> </div> --}}
                         </div>
                         <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3"> email<span class="text-danger"> *</span></label> <input type="email" id="email" name="email" placeholder="" onblur="validate(3)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Mobile<span class="text-danger"> *</span></label> <input type="text" id="mobile" name="mobile" placeholder="" onblur="validate(4)"> </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Password<span class="text-danger"> *</span></label> <input type="password" id="password" name="password" placeholder="" onblur="validate(5)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">password_confirmation<span class="text-danger"> *</span></label> <input type="password" id="password_confirmation" name="password_confirmation" placeholder="" onblur="validate(5)"> </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                           
+                            {{-- <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">City<span class="text-danger"> *</span></label> <input type="text" id="city" name="city" placeholder="" onblur="validate(5)"> </div> --}}
+                        </div>
+                        {{-- <div class="row justify-content-between text-left">
                             <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3"> state </Cite><span class="text-danger"> *</span></label> <input type="text" id="state" name="state" placeholder="" onblur="validate(5)"> </div>
                             <div class="form-group col-sm-6 flex-column d-flex"> <label  class="form-control-label px-3">Country</label><span style="color: red !important; "></span>      
         
@@ -292,7 +293,7 @@
                                     <option value="Zambia">Zambia</option>
                                     <option value="Zimbabwe">Zimbabwe</option>
                                 </select></div>
-                        </div>
+                        </div> --}}
                         <div class="row justify-content-end">
                          
                             <div class="form-group col-sm-12"> <button type="submit" class="btn-block btn-primary">submit</button> </div>
