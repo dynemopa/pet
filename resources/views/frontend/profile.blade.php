@@ -18,6 +18,7 @@
     body {color: #000;overflow-x: hidden;height: 100%;background-image: url("https://i.imgur.com/GMmCQHC.png");background-repeat: no-repeat;background-size: 100% 100%}.card{padding: 30px 40px;margin-top: 60px;margin-bottom: 60px;border: none !important;box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2)}.blue-text{color: #00BCD4}.form-control-label{margin-bottom: 0}input, textarea, button{padding: 8px 15px;border-radius: 5px !important;margin: 5px 0px;box-sizing: border-box;border: 1px solid #ccc;font-size: 18px !important;font-weight: 300}input:focus, textarea:focus{-moz-box-shadow: none !important;-webkit-box-shadow: none !important;box-shadow: none !important;border: 1px solid #00BCD4;outline-width: 0;font-weight: 400}.btn-block{text-transform: uppercase;font-size: 15px !important;font-weight: 400;height: 43px;cursor: pointer}.btn-block:hover{color: #fff !important}button:focus{-moz-box-shadow: none !important;-webkit-box-shadow: none !important;box-shadow: none !important;outline-width: 0}
     </style>
    <body>
+    
     <div class="container-fluid px-1 py-5 mx-auto" id="k1" >
         <div class="row d-flex justify-content-center">
             <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
@@ -26,18 +27,22 @@
                     <h5 class="text-center mb-4">Registration Form</h5>
                     <form class="form-card" onsubmit="event.preventDefault()">
                         <div class="row justify-content-between text-left">
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">name<span class="text-danger"> *</span></label> <input type="text" id="name" name="name" placeholder="Enter your name" onblur="validate(1)"> </div>
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3"> Address </Cite><span class="text-danger"> *</span></label> <input type="text" id="address" name="address" placeholder="" onblur="validate(5)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">name<span class="text-danger"> *</span></label> <input type="text" id="name" name="name" placeholder="Enter your name" value="{{$data->name}}" onblur="validate(1)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3"> email<span class="text-danger"> *</span></label> <input type="email" id="email" name="email" placeholder="" value="{{$data->email}}" onblur="validate(3)"> </div>
                             {{-- <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Last name<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)"> </div> --}}
                         </div>
                         <div class="row justify-content-between text-left">
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3"> email<span class="text-danger"> *</span></label> <input type="email" id="email" name="email" placeholder="" onblur="validate(3)"> </div>
-                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Mobile<span class="text-danger"> *</span></label> <input type="text" id="mobile" name="mobile" placeholder="" onblur="validate(4)"> </div>
+                            @foreach($data->metarelation as $datas)
+                                <div class="form-group col-sm-6 flex-column d-flex"> 
+                                    <label class="form-control-label px-3">{{$datas->key}}<span class="text-danger"> *</span></label> 
+                                    <input type="text" id="{{$datas->key}}" name="{{$datas->key}}" placeholder="" value="{{$datas->value}}" onblur="validate(4)"> 
+                                </div>
+                            @endforeach
                         </div>
-                        <div class="row justify-content-between text-left">
+                        {{-- <div class="row justify-content-between text-left">
                             <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Password<span class="text-danger"> *</span></label> <input type="password" id="password" name="password" placeholder="" onblur="validate(5)"> </div>
                             <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">password_confirmation<span class="text-danger"> *</span></label> <input type="password" id="password_confirmation" name="password_confirmation" placeholder="" onblur="validate(5)"> </div>
-                        </div>
+                        </div> --}}
                         <div class="row justify-content-between text-left">
                            
                             {{-- <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">City<span class="text-danger"> *</span></label> <input type="text" id="city" name="city" placeholder="" onblur="validate(5)"> </div> --}}

@@ -1,5 +1,5 @@
 @extends('frontend.layout.main')
-@section('main-container')
+@section('content')
   <!-- about section -->
 
   <section class="about_section layout_padding">

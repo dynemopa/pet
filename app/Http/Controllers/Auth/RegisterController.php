@@ -70,7 +70,7 @@ class RegisterController extends Controller
         //     'password' => Hash::make($data['password']),
         // ]);
         
-        $user = User::create([
+        $user = user::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -78,9 +78,10 @@ class RegisterController extends Controller
 
         $user->createMeta([
             'Mobile' =>$data['mobile'],
-            'Address' => $data['address']
+           
         ]);
 
         return $user;
     }
+   
 }

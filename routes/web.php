@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\loginController;
-use App\Http\Controllers\frontend\ClinicController;
+use App\Http\Controllers\frontend\SupportController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\PetGalleryController;
 use App\Http\Controllers\frontend\ServiceController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\frontend\AboutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,11 +22,13 @@ use App\Http\Controllers\FrontendController;
 Route::get('/' ,[HomeController::class,'index']);
 Route::get('/service' ,[ServiceController::class,'index']);
 Route::get('/petgallery' ,[PetGalleryController::class,'index']);
-Route::get('/clinic' ,[ClinicController::class,'index']);
-Route::get('/contect' ,[ContactController::class,'index']);
+Route::get('/about' ,[AboutController::class,'index']);
+Route::get('/support' ,[SupportController::class,'index']);
 Route::get('/contect' ,[ContactController::class,'index']);
 Route::get('/dashboard' ,[ContactController::class,'dashboard']);
-Route::get('/profile' ,[ContactController::class,'profile']);
+
+
+Route::get('/profile' ,[ProfilerController::class,'showuser']);
 
 
 

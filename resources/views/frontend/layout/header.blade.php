@@ -1,89 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sailor Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
 
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-
-  <title>Petology</title>
-
-
-  <link rel="stylesheet" type="text/css" href="{{url('https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css')}}" >
-
-
-  <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/bootstrap.css')}}" >
-
-
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css" />
   
+    <link rel="stylesheet" type="text/css" href="http://themes.audemedia.com/html/goodgrowth/css/owl.theme.default.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
 
-  <link href="{{url('https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <!-- Vendor CSS Files -->
+ <link href="{{asset('assets/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
+ <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+ <link href="{{asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+ <link href="{{asset('assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+ <link href="{{asset('assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+ <link href="{{asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+ <link href="{{asset('assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
 
-  <link  href="{{asset('frontend/css/style.css')}}" rel="stylesheet" >
-
-  
-
-  <link href="{{asset('frontend/css/responsive.css')}}" rel="stylesheet" >
 </head>
 
 <body>
 
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="{{url('/')}}">
-            <img src="{{asset('frontend/images/logo.png')}}" alt="">
-            <span>
-              Petology
-            </span>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
-              <ul class="navbar-nav  ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url('/service')}}">service </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url('/petgallery')}}">Pet's gallery </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url('/clinic')}}"> clinic</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url('/contect')}}">Contact us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url('/login')}}">Login </a>
-                </li>
+      <a class="logo me-auto d1" href="index.html"><img src="https://secureservercdn.net/198.71.233.183/mb5.bfe.myftpupload.com/wp-content/uploads/2022/06/Group-10.png" width="153px"></a>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+         <li><a href="{{route('login')}}" >Login</a></li>
+          <li><a href="{{route('register')}}">Sign-up</a></li>
+          <li><a href="{{url('/service')}}">Checkin</a></li>
+          <li class="dropdown"><a href="#"><span></span> <i >&#9776;</i></a>
+            <ul>
+              <li><a href="{{url('/')}}">Home</a></li>
+              <li><a href="{{url('/about')}}">About</a></li>
+              <li><a href="">Parthership</a></li>
+               <li><a href="{{url('/support')}}">Support</a></li>
+               <li><a href="">Blong</a></li>
+
               </ul>
-              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-              </form>
-            </div>
-            <div class="quote_btn-container  d-flex justify-content-center">
-              <a href="">
-                Call: +01 1234567890
-              </a>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    
-  
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
