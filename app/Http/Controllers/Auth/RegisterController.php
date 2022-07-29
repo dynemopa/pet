@@ -78,7 +78,20 @@ class RegisterController extends Controller
 
         $user->createMeta([
             'Mobile' =>$data['mobile'],
-           
+            'Address' =>$data['address'],
+            'website' =>'',
+            'about_me' =>'',
+            'skype' =>'',
+            'live' =>'',
+            'facebook_url' =>'',
+            'speak' =>'',
+            'twitter_url' =>'',
+            'payment_info' =>'',
+            'linkendin_url' =>'',
+            'email_receving' =>'',
+            'pinterest_url' =>'',
+            'instagram_url' =>'',
+            'youtube_url' =>'',
         ]);
 
         return $user;

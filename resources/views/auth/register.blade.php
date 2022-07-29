@@ -75,7 +75,7 @@
                             </div>
                         </div>
 
-                        {{-- <div class="row mb-3">
+                        <div class="row mb-3">
                             <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
 
                             <div class="col-md-6">
@@ -87,7 +87,23 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div> --}}
+                        </div>
+                    <div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                I only want to book
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                I want to rent my property
+                            </label>
+                          </div>
+                        </div>
+                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <label for="vehicle1">I agree with terms & conditions</label><br>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -96,6 +112,7 @@
                                 </button>
                             </div>
                         </div>
+                    
                     </form>
                 </div>
             </div>

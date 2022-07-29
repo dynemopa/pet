@@ -1144,3 +1144,50 @@ ul.tabs
   height: 400px;
   width: 100%;
 }
+.support_text
+{
+  color: #003937;
+}
+.d57
+{
+  font-size: 45px;
+  font-family: Georgia, serif;
+}
+.d58
+{
+    border: none;
+}
+.d59
+{
+   margin: 15px;
+}
+.d511
+{
+  background-color: white;
+  border: 1px solid;
+}
+
+.d72
+{
+  padding: 15px;
+}
+.d73
+{
+  border: 1px solid #ccc9c2; 
+ 
+  height:70px;
+}
+.d74
+{
+  border: 1px solid#ccc9c2; 
+ 
+
+}
+.d75{
+  padding: 5px;
+}
+.d76
+{
+  text-align: left;
+  color: #151414 !important;
+}

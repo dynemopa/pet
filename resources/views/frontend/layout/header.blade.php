@@ -8,7 +8,6 @@
   <title>Sailor Bootstrap Template - Index</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -62,7 +61,7 @@
               <li><a href="{{url('/about')}}">About</a></li>
               <li><a href="">Parthership</a></li>
                <li><a href="{{url('/support')}}">Support</a></li>
-               <li><a href="">Blong</a></li>
+               <li><a href="{{url('/blog')}}">Blog</a></li>
 
               </ul>
           </li>
