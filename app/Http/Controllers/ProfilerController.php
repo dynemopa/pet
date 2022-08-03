@@ -38,7 +38,7 @@ class ProfilerController extends Controller
          'skype' =>$request->skype,
          'live' =>$request->live,
          'facebook_url' =>$request->facebook_url,
-         'speak' =>$request->twitter_url,
+         'twitter_url' =>$request->twitter_url,
          'payment_info' =>$request->payment_info,
          'linkendin_url' =>$request->linkendin_url,
          'email_receving' =>$request->email_receving,

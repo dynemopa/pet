@@ -51,7 +51,7 @@ body {
   <div class="sidenav">
     <a href="{{url('/dashboard')}}">Dashboard</a> 
     <a href="{{url('/profile')}}">profile</a>
-    <a href="{{url('/Favorites')}}">Favorites</a>
+    <a href="{{url('/favorites')}}">Favorites</a>
     <a href="{{url('/reservations')}}">Reservations</a> 
     <a href="{{url('/inbox')}}">My Inbox</a> 
     <a  href="{{ route('logout') }}"

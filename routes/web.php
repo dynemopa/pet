@@ -10,6 +10,10 @@ use App\Http\Controllers\frontend\ServiceController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\ProfilerController;
+use App\Http\Controllers\frontend\FavoritesController;
+use App\Http\Controllers\frontend\PartnershipController;
+use App\Http\Controllers\frontend\BirminghamController;
+use App\Http\Controllers\frontend\MontgomeryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,9 +34,11 @@ Route::get('/dashboard' ,[ContactController::class,'dashboard']);
 Route::get('/dashboard' ,[ContactController::class,'dashboard']);
 Route::get('/delete',[ProfilerController::class,'delete']);
 Route::get('update',[ProfilerController::class,'update'])->name('update-profile');
-
-
 Route::get('/profile' ,[ProfilerController::class,'showuser']);
+Route::get('/favorites' ,[FavoritesController::class,'index']);
+Route::get('/parthership' ,[PartnershipController::class,'index']);
+Route::get('/montgomery' ,[MontgomeryController::class,'index']);
+Route::get('/birmingham' ,[BirminghamController::class,'index']);
 
 
 

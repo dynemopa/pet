@@ -220,8 +220,8 @@
                         
                             
                         
-                            <a href="{{url('delete/')}}"><button type="button" class="btn btn-danger">Delete</button></a>
-                            <button type="submit" class="btn btn-success">Edit</button>
+                            <a href="{{url('delete/')}}"><button type="button" class="btn btn-danger">Delete Account</button></a>
+                            <button type="submit" class="btn btn-success">Update profile</button>
                             </div>
                         </form>
                       

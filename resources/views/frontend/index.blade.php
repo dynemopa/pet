@@ -77,18 +77,18 @@
             <div id="rcorners5">
               <div class="row">
                 <div class="col-md-1">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <i class="fa fa-search" aria-hidden="true"></i></i>
                 </div>
 
                 <div class="col-md-11" style="margin-top:-32px; margin-left:15px;">
-                  <input style="width: 90%;" class="form-control d53" list="browsers" name="myBrowser" placeholder="Birmingham & Montgomery" ></input>
+                  <input style="width: 90%;" class="form-control d53" list="browsers" name="myBrowser" placeholder="Birmingham & Montgomery" >
                   <datalist id="browsers">
-                    <option value="Chrome"></option>
-                    <option value="Firefox"></option>
-                    <option value="Internet Explorer"></option>
-                    <option value="Opera"></option>
-                    <option value="Safari"></option>
-                    <option value="Microsoft Edge"></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
                   </datalist>
                 </div>
               </div>
@@ -154,13 +154,13 @@
  <div class="col-md-12">
    <div class="row">
       <div class="col-md-6" > 
-        <img src="https://images.unsplash.com/photo-1625244724120-1fd1d34d00f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWxzfGVufDB8fDB8fA%3D%3D&w=1000&q=80" class="img-fluid imgrad1" alt="Responsive image" /><p class="p1"><b> 5 Listings</b></p>
+        <a href="{{url('/montgomery')}}"> <img src="https://images.unsplash.com/photo-1625244724120-1fd1d34d00f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWxzfGVufDB8fDB8fA%3D%3D&w=1000&q=80" class="img-fluid imgrad1" alt="Responsive image" /><p class="p1"><b> 5 Listings</b></p></a>
         <h2  class="p2">Montgomery </h2>
       </div>
     
       <div class="col-md-6"> 
-        <img src="https://images.unsplash.com/photo-1615460549969-36fa19521a4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGhvdGVsfGVufDB8fDB8fA%3D%3D&w=1000&q=80" class="img-fluid imgrad2 " alt="Responsive image"/>
-        <p class="p1"><b> 1 Listings</b></p>
+        <a href="{{url('/birmingham')}}"> <img src="https://images.unsplash.com/photo-1615460549969-36fa19521a4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGhvdGVsfGVufDB8fDB8fA%3D%3D&w=1000&q=80" class="img-fluid imgrad2 " alt="Responsive image"/>
+        <p class="p1"><b> 1 Listings</b></p></a>
         <h2 class="p2"> Birmingham</h2>
       </div>
     </div>

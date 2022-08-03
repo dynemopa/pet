@@ -371,6 +371,7 @@ h6 {
   margin-bottom: 20px;
   font-size: 48px;
   font-weight: 700;
+  font-family: MillerDisplayRoman,Georgia,serif;;
 }
 
 #hero p {
@@ -499,20 +500,20 @@ h6 {
 
 #rcorners2 {
   border-radius: none;
-  border: 2px solid black;
+  border: 2px solid #cac4bd;
   padding: 12px; 
   width: 100%;
   height: auto;  
-      background-color: #f4f4f4 !important;
+      background-color: #fffbf3 !important;
 }
 
 #rcorners3 {
   border-radius: none;
-  border: 2px solid white;
+  border: 2px solid #fcf5ec;
   padding: 20px; 
   width: 100%;
   height: auto;  
-  background-color: white;
+  background-color: #fcf5ec;
   margin-top: -34px;
   position: relative;
   z-index: 1;
@@ -534,11 +535,11 @@ h6 {
 #rcorners5
 {
   border-radius: 180px;
-  border: 2px solid white;
+  border: 2px solid #fcf5ec;
   padding: 12px; 
   width: 100%;
   height: auto;  
-  background-color: white;
+  background-color: #fcf5ec;
   position: relative;
   z-index: 1;
   margin-bottom: 10px;
@@ -546,11 +547,11 @@ h6 {
 #rcorners6
 {
   border-radius: 180px;
-  border: 2px solid white;
+  border: 2px solid #fcf5ed;
   padding: 12px; 
   width: 100%;
   height: auto;  
-  background-color: white;
+  background-color: #fcf5ed;
   position: relative;
   z-index: 1;
   margin-bottom: 10px;
@@ -574,9 +575,9 @@ h6 {
 .bar{
 padding-left: 15px;
     font-size: 3rem;
-    font-family: ui-monospace;
+    font-family:MillerDisplayRoman,Georgia,serif;;
     padding-top: 30px;
-    color: gray;
+    color: #073937;
 }
 .test2{
 padding-left: 15px;
@@ -742,7 +743,7 @@ div#rigt-mob-dwella div {
 {
   text-align: left;
   padding-left: 0%;
-  color: #eda33d;
+  color: #073937;
 }
 
 .shadow-effect {
@@ -993,11 +994,11 @@ ul.tabs
   #rcorners3
   {
     border-radius: 180px;
-    border: 2px solid white;
-    padding: 20px;
+    border: 2px solid #fffbf3;
+    padding: 15px;
     width: 100%;
     height: auto;
-    background-color: white;
+    background-color: #fffbf3;
     margin-top: -34px;
     position: relative;
     z-index: 1;
@@ -1006,11 +1007,12 @@ ul.tabs
 
   #rcorners2 {
   border-radius: 180px;
-  border: 2px solid black;
-  padding: 12px; 
+  border: 2px solid #cac4bd;
+  padding: 1px; 
   width: 100%;
   height: auto;  
       background-color: #fcf5ec !important;
+      height: 67px;
 }
 
 }
@@ -1035,19 +1037,33 @@ ul.tabs
   color: white;
   letter-spacing: 1px;
   line-height: 15px;
-  border: 2px solid  #a1763b;
+  border: 2px solid  #f9be25;
   border-radius: 40px;
-  background-color:#a1763b;
+  background-color:#f9be25;
   transition: all 0.3s ease 0s;
   width: 150px;
+  height: 45px;
+
+}
+.btn-secondary {
+  font-family: Raleway-SemiBold;
+  font-size: 20px;
+  color: white;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid  #b18547;
+  border-radius: 40px;
+  background-color:#b18547;
+  transition: all 0.3s ease 0s;
+  width: 300px;
   height: 45px;
 
 }
 
 .btn-primary:hover {
   color: #FFF;
-  background: #db9739;
-  border: 2px solid #db9739;
+  background: #fdc050;
+  border: 2px solid #fdc050;
 }
 
 .rs {
@@ -1055,10 +1071,12 @@ ul.tabs
     border-radius: 0 !important;
     background: #f1f1f1 !important;
     border-width: 0px 0px 1px 0px !important;
+    color: #9F7534;
 }
 .rs:hover{
     background: #ffffff !important;
     border-width: 0px 0px 0px 0px !important;
+    color: black;
 }
 .rs:active{
     background: #ffffff !important;
@@ -1088,8 +1106,9 @@ ul.tabs
 }
 .d53
 {
-  border: 2px solid white !important;
-  width:100%
+  border: 2px solid #fcf5ed !important;
+  width:100%;
+  background-color: #fcf5ed;
 }
 .d54
 {
@@ -1097,7 +1116,8 @@ ul.tabs
 }
 .d55
 {
-  border: 2px solid white !important;
+  border: 2px solid #fcf5ed !important;
+  background-color: #fcf5ed;
   width:49%
 }
 .d56
@@ -1109,11 +1129,11 @@ ul.tabs
 #rcorners6
 {
   border-radius: 180px;
-  border: 2px solid white;
+  border: 2px solid #fcf5ed;
   padding: 12px; 
   width: 140%;
   height: auto;  
-  background-color: white;
+  background-color: #fcf5ed;
   position: relative;
   z-index: 1;
   margin-bottom: 10px;
