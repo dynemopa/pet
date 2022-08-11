@@ -101,7 +101,7 @@
                   <i class="fa fa-calendar" aria-hidden="true"></i>
                 </div>
 
-                <div class="col-md-10" style="margin-top:-32px; margin-left:15px;">
+                <div class="col-md-10" style="margin-top:-39px; margin-left:15px;">
                   <input type="text" id="checkindate" name="checkindate" class="form-control d53" placeholder="Check In" style="padding: 5px;">
                 </div>
               </div>
@@ -115,7 +115,7 @@
                   <i class="fa fa-calendar" aria-hidden="true"></i>
                 </div>
 
-                <div class="col-md-10" style="margin-top:-32px; margin-left:15px;">
+                <div class="col-md-10" style="margin-top:-39px; margin-left:15px;">
                   <input type="text" id="checkoutdate" name="checkoutdate" class="form-control d53" placeholder="Check Out" style="padding: 5px;">
                 </div>
               </div>
@@ -127,8 +127,8 @@
                 <div class="col-md-1">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 </div>
-                <div class="col-md-10" style="margin-top:-26px; margin-left:15px;">
-                    <button onclick="decrement()" class="d5">-</button>
+                <div class="col-md-10" style="margin-top:-39px; margin-left:15px;">Guests
+                    <button onclick="decrement()" class="d5"><span style="font-size: 30px">-</span></button>
                     <input id=demoInput class=" d55" type=number min=1 max=10 >
                     <button onclick="increment()" class="d5" >+</button>
                     

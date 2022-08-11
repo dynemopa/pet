@@ -64,36 +64,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // return User::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'password' => Hash::make($data['password']),
-        // ]);
+       
         
         $user = user::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            // 'password' => $data['password'],
         ]);
 
-        $user->createMeta([
-            'Mobile' =>$data['mobile'],
-            'Address' =>$data['address'],
-            'website' =>'',
-            'about_me' =>'',
-            'skype' =>'',
-            'live' =>'',
-            'facebook_url' =>'',
-            'speak' =>'',
-            'twitter_url' =>'',
-            'payment_info' =>'',
-            'linkendin_url' =>'',
-            'email_receving' =>'',
-            'pinterest_url' =>'',
-            'instagram_url' =>'',
-            'youtube_url' =>'',
-        ]);
-
+        
         return $user;
     }
    

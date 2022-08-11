@@ -14,6 +14,13 @@ use App\Http\Controllers\frontend\FavoritesController;
 use App\Http\Controllers\frontend\PartnershipController;
 use App\Http\Controllers\frontend\BirminghamController;
 use App\Http\Controllers\frontend\MontgomeryController;
+use App\Http\Controllers\MontgomeryimgController;
+use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\ShowProfileController;
+use App\Http\Controllers\ListController;
+use App\Http\Controllers\DeleteController;
+use App\Http\Controllers\ListingController;
+use App\Http\Controllers\FileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +31,7 @@ use App\Http\Controllers\frontend\MontgomeryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/' ,[HomeController::class,'index']);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->name('welcome');
 Route::get('/service' ,[ServiceController::class,'index']);
 Route::get('/blog' ,[BlogControllaer::class,'index']);
 Route::get('/about' ,[AboutController::class,'index']);
@@ -32,13 +39,20 @@ Route::get('/support' ,[SupportController::class,'index']);
 Route::get('/contect' ,[ContactController::class,'index']);
 Route::get('/dashboard' ,[ContactController::class,'dashboard']);
 Route::get('/dashboard' ,[ContactController::class,'dashboard']);
-Route::get('/delete',[ProfilerController::class,'delete']);
-Route::get('update',[ProfilerController::class,'update'])->name('update-profile');
+// Route::get('/delete',[ProfilerController::class,'delete']);
+// Route::get('update',[ProfilerController::class,'update'])->name('update-profile');
 Route::get('/profile' ,[ProfilerController::class,'showuser']);
 Route::get('/favorites' ,[FavoritesController::class,'index']);
 Route::get('/parthership' ,[PartnershipController::class,'index']);
 Route::get('/montgomery' ,[MontgomeryController::class,'index']);
 Route::get('/birmingham' ,[BirminghamController::class,'index']);
+Route::get('/montgomeryimg' ,[ MontgomeryimgController::class,'index']);
+Route::get('/delete/{id}',[ListController::class,'delete']);
+Route::get('/edit/{id}',[ListController::class,'edit']);
+Route::put('/Update-data/{id}',[ListController::class,'update']);
+Route::get('/deletevalidation/{id}',[ ListController::class,'delete']);
+Route::get('/image/', [FileController::class, 'create']);
+Route::post('/file/', [FileController::class, 'store']);
 
 
 
@@ -46,5 +60,24 @@ Route::get('/birmingham' ,[BirminghamController::class,'index']);
 
 Auth::routes();
 
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::namespace('Admin')->prefix('Admin')->middleware(['auth','admin'])->group(function ()
+// {
+	Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'dashboard'])->name('dashboard');
+	Route::get('/changepassword' ,[ChangePasswordController::class,'changepassword'])->name('changepassword');
+	Route::post('/changePassword',[ChangePasswordController::class, 'changePasswordPost'])->name('changePasswordPost');
+	Route::get('/showprofile' ,[ShowProfileController::class,'showprofile'])->name('showprofile');
+	Route::post('/update',[ShowProfileController::class,'update'])->name('update');
+	Route::get('/list',[ListController::class,'list'])->name('list');
+	Route::get('/listing',[ListingController::class,'listing'])->name('listing');
+	 
+  
+	
+
+	
+// });
+
 

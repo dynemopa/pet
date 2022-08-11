@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       // $this->middleware('auth');
     }
 
     /**
@@ -23,6 +23,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::check() && Auth::guard()->user()->user_type == 1)
+        {
+            return view('home');
+        }
+        else
+        {
+           return view('frontend.index');
+        }
+        
+    }
+
+    public function home()
+    {
+        return view('frontend.index');
     }
 }

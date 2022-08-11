@@ -52,7 +52,30 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-         <li><a href="{{route('login')}}" >Login</a></li>
+         <li>
+          <?php if (Auth::check()) { ?>
+               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                      <i class="ni ni-user-run"></i>
+                      <span>Logout</span>
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                    </form>
+             <?php } else { ?>
+                 <a href="{{route('login')}}" >Login</a>
+            <?php  }
+           ?>
+
+         <!-- <a href="{{route('login')}}" >Login</a></li>
+          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                      <i class="ni ni-user-run"></i>
+                      <span>Logout</span>
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                    </form> -->
           <li><a href="{{route('register')}}">Sign-up</a></li>
           <li><a href="{{url('/service')}}">Checkin</a></li>
           <li class="dropdown"><a href="#"><span></span> <i >&#9776;</i></a>
