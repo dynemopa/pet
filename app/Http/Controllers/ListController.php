@@ -22,10 +22,7 @@ class ListController extends Controller
     public function  delete(Request $request ,$id)
     {
         $User=user::find($id);
-        // dd( $User->user_type);
   
-       
-
          if( $request->text1!='delete' && $User->user_type=='1')
         {
              return back()->with('error', 'Not Deleted');

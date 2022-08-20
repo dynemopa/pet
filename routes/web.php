@@ -72,7 +72,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 	Route::get('/showprofile' ,[ShowProfileController::class,'showprofile'])->name('showprofile');
 	Route::post('/update',[ShowProfileController::class,'update'])->name('update');
 	Route::get('/list',[ListController::class,'list'])->name('list');
+
 	Route::get('/listing',[ListingController::class,'listing'])->name('listing');
+
+	Route::get('/showlisting/',[ListingController::class,'showlisting'])->name('showlisting');
+	Route::get('/listdelete/{file_id}/{title_id}/{feacture_id}',[ListingController::class,'listdelete'])->name('listdelete');
+	Route::get('/listedit/{files_id}/{title_id}/{feacture_id}',[ListingController::class,'listedit'])->name('listedit');
+	Route::get('/updatelist/{files_id}/{title_id}/{feacture_id}',[ListingController::class,'updatelist'])->name('updatelist');
+
+	Route::get('/showlist/{file_id}',[ListingController::class,'showlist'])->name('showlist');
+	
 	 
   
 	

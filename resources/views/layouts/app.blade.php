@@ -41,7 +41,7 @@
                   </a>
                 </li> 
                 <li class="nav-item">
-                  <a class="nav-link" href="{{route('listing')}}">
+                  <a class="nav-link" href="{{route('showlisting')}}">
                     <i class="fas fa-group"></i>
                     <span class="nav-link-text"><b>Listing</b></span>
                   </a>

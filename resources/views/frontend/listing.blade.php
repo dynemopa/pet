@@ -6,93 +6,92 @@
   <title>Laravel 8 Multiple Image Upload Real Programmer</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="ckeditor/ckeditor.js"></script>
 </head>
 <body>
-      
+  <a href="{{route('showlisting')}}"> <button type="button" class="btn btn-primary text-right">BACK</button></a>
     <div class="container">
-    @if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <strong>Sorry!</strong> Here have some issue please check<br><br>
-        <ul>
-          @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-    </div>
-    @endif
+  
       
     @if(session('success'))
     <div class="alert alert-success">
       {{ session('success') }}
     </div> 
     @endif
-    <a href="{{url('/image/')}}"><button type="button" class="btn btn-primary">Image</button></a>
+    <div>
+      <center><h1><u>Listing From</u></h1></center>
+    </div>
      
     {{-- <form method="post" action="{{url('/file/')}}" enctype="multipart/form-data"> --}}
     <form  method="post" action="{{url('/file/')}}"  enctype="multipart/form-data">
         @csrf
       
-        <div class="input-group realprocode control-group lst increment" >
-          <input type="file" name="filenames" class="myfrm form-control">
-          <div class="input-group-btn"> 
-            <button class="btn btn-success" type="button"> <i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
+
+       <div class="input-group realprocode control-group lst increment" >
+           <input type="file" name="filenames[]" class="myfrm form-control" ><br>
+          
+          <div class="input-group-btn" style="padding-left: 10px"> 
+            <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
           </div>
         </div>
         <div class="clone hide">
-          <div class="realprocode control-group lst input-group" style="margin-top:10px">
-            <input type="file" name="filenames" class="myfrm form-control">
-            <div class="input-group-btn"> 
+          <div class="hdtuto control-group lst input-group" style="margin-top:10px">
+            <input type="file" name="filenames[]" class="myfrm form-control">
+            <div class="input-group-btn" style="padding-left: 10px"> 
               <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
             </div>
           </div>
         </div>
+        <span style="color: red">@error('filenames'){{$message}}@enderror</span>
         
     <div class="form-group">
         <label for="">title</label>
        
-        <textarea id="title"  class="form-control"  name="title" rows="4" cols="50"></textarea>
-       
+        <input type="text" id="title"  class="form-control"  name="title"  value="{{old('title')}}" >
+       <span style="color: red">@error('title'){{$message}}@enderror</span>
       </div>
       <div class="form-group">
         <label for="">content</label>
-     
-        <textarea class="form-control" id="content" name="content" rows="4" cols="50"></textarea>
+
+     <textarea class="form-control" id="content" name="content" rows="4" cols="50"  >{{ old('content') }}</textarea><br>
+     <span style="color: red">@error('content'){{$message}}@enderror</span>
+      
       </div>
       <div class="form-group">
           <label for="">Price per Night</label>
-          <input type="text" class="form-control" id="price_per_night" name="price_per_night">
+          <input type="text" class="form-control" id="price_per_night" name="price_per_night" value="{{old('price_per_night')}}" ><br>
+          <span style="color: red">@error('price_per_night'){{$message}}@enderror</span>
       </div>
       <div class="form-group">
           <label for="">Cleaning Fee: </label>
-          <input type="text" class="form-control" id="cleaning_fee" name="cleaning_fee">
+          <input type="text" class="form-control" id="cleaning_fee" name="cleaning_fee" value="{{old('cleaning_fee')}}" ><br>
+          <span style="color: red">@error('cleaning_fee'){{$message}}@enderror</span>
       </div>
       <div class="form-group">
-          <label for="">Sleeping Situation</label>
-          <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" name="sleeping_situation" id="sleeping_situation" />
-              <label class="form-check-label" for="flexCheckDefault">1 King Bed</label>
-          </div>
-            
-            <!-- Checked checkbox -->
-          <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" name="sleeping_situation" id="sleeping_situation" />
-              <label class="form-check-label" for="flexCheckChecked">1 Couch</label>
-          </div>
+          <label for="">Sleeping Situation</label><br><br>
+          <input type="checkbox" id="sleeping_situation" name="sleeping_situation[]" value="1 King Bed">
+          <label for="">1 King Bed</label><br>
+          <input type="checkbox" id="sleeping_situation" name=" sleeping_situation[]" value="1 Couch">
+          <label for="vehicle1">1 Couch</label><br>
+          <span style="color: red">@error('sleeping_situation'){{$message}}@enderror</span>
       </div>
       <div  class="form-group">
           <label for="">Property Address</label>
           
           <div class="form-group">
               <label for="">Address:</label>
-              <input type="text" class="form-control" id="address" name="address">
+              <input type="text" class="form-control" id="address" name="address" value="{{old('address')}}" ><br>
+              <span style="color: red">@error('address'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
               <label for="">Area:</label>
-              <input type="text" class="form-control" id="area" name="area">
+              <input type="text" class="form-control" id="area" name="area" value="{{old('area')}}" ><br>
+              <span style="color: red">@error('area'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
               <label for="">State:</label>
-              <input type="text" class="form-control" id="state" name="state">
+              <input type="text" class="form-control" id="state" name="state" value="{{old('state')}}" >
+              <span style="color: red">@error('state'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
               <label for="">Country:</label>
@@ -340,25 +339,29 @@
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
+            <span style="color: red">@error('country'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
               <label for="">City:</label>
-              <input type="text" class="form-control" id="city" name="city">
+              <input type="text" class="form-control" id="city" name="city"  value="{{old('city')}}" >
+              <span style="color: red">@error('city'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
               <label for="">Zip</label>
-              <input type="text" class="form-control" id="Zip" name="Zip">
+              <input type="number" class="form-control" id="zip" name="zip" value="{{old('zip')}}" >
+              <span style="color: red">@error('zip'){{$message}}@enderror</span>
           </div>
       </div>
       <div>
           <label for="">Property Details</label>
           <div class="form-group">
               <label for="">Property ID</label>
-              <input type="text" class="form-control" id="property_id" name="property_id">
+              <input type="number" class="form-control" id="property_id" name="property_id" value="{{old('property_id')}}" >
+              <span style="color: red">@error('property_id'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
             <label>Room</label><br/>
-            <select name="room" id="room" class="form-control">
+            <select name="room" id="room" class="form-control" >
                 <option value="">Rooms</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -367,6 +370,7 @@
                 <option value="5">5</option>
                 <option value="6">6</option>
               </select>
+              <span style="color: red">@error('room'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
               <label for="">Bathrooms</label>
@@ -379,10 +383,12 @@
                 <option value="5">5</option>
                 <option value="6">6</option>
               </select>
+              <span style="color: red">@error('bathrooms'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
               <label for="">Property Size:</label>
-              <input type="text" class="form-control" id="property_size:" name="property_size" placeholder=" Example:25ft2">
+              <input type="text" class="form-control" id="property_size:" name="property_size" placeholder=" Example:25ft2" value="{{old('property_size')}}" ><br>
+              <span style="color: red">@error('property_size'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
               <label for="">Bedrooms:</label>
@@ -395,124 +401,131 @@
                 <option value="5">5</option>
                 <option value="6">6</option>
               </select>
+              <span style="color: red">@error('bedrooms'){{$message}}@enderror</span>
               
           </div>
           <div class="form-group">
               <label for="">Please Note:</label>
               
-              <textarea  rows="4" cols="50" class="form-control" id="please_note" name="please_note"></textarea>
+              <textarea  rows="4" cols="50" class="form-control" id="please_note" name="please_note"  value="{{old('please_note')}}" ></textarea><br>
+              <span style="color: red">@error('please_note'){{$message}}@enderror</span>
           </div>
       </div><br>
     <div class="col-md-12">
-        <label for="">Amenities and Features</label><br>
+        <label for="">amenities and Features</label><br>
         <div class="row">
             <div class="col-md-4">
                
-                <input type="checkbox" id="air_conditioner" name="air_conditioner" >
+                <input type="checkbox" id="amenities" name="amenities[]" value="Air Conditioner ">
                 <label for="vehicle1"> Air Conditioner</label><br>
-                <input type="checkbox" id="breakfast_included" name="breakfast_included">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Breakfast Included< ">
                 <label for="vehicle2">Breakfast Included</label><br>
-                <input type="checkbox" id="dryer" name="dryer">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Dryer ">
                 <label for="vehicle3"> Dryer</label><br>
         
-                <input type="checkbox" id="essentials" name="essentials">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Essentials ">
                 <label for="vehicle1">Essentials</label><br>
-                <input type="checkbox" id="fax" name="fax">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Fax ">
                 <label for="vehicle2">Fax</label><br>
-                <input type="checkbox" id="gym" name="gym">
+                <input type="checkbox" id="amenities" name="amenities[]"value=" Gym">
                 <label for="vehicle3"> Gym</label><br>
         
-                <input type="checkbox" id="hot_tub" name="hot_tub">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Hot Tub ">
                 <label for="vehicle1">Hot Tub</label><br>
-                <input type="checkbox" id="internet" name="internet">
+                <input type="checkbox" id="amenities" name="amenities[]"value=" Internet">
                 <label for="vehicle2">Internet</label><br>
-                <input type="checkbox" id="non_smoking" name="non_smoking">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Non Smoking ">
                 <label for="vehicle3"> Non Smoking</label><br>
         
                
             </div>
             <div class="col-md-4">
-                <input type="checkbox" id="phone_(booth/lines)" name="phone_(booth/lines)">
+                <input type="checkbox" id="amenities" name="amenities[]"value=" Phone (booth/lines)">
                 <label for="vehicle1">Phone (booth/lines)</label><br>
-                <input type="checkbox" id="projector" name="projector">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Projector(s) ">
                 <label for="vehicle2">Projector(s)</label><br>
-                <input type="checkbox" id="smoking_allowed" name="smoking_allowed">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Smoking Allowed ">
                 <label for="vehicle3"> Smoking Allowed</label><br>
         
-                <input type="checkbox" id="tv" name="tv">
+                <input type="checkbox" id="amenities" name="amenities[]"value="TV ">
                 <label for="vehicle1">TV</label><br>
-                <input type="checkbox" id="wheelchair_accessible" name="wheelchair_accessible">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Wheelchair Accessible ">
                 <label for="vehicle2">Wheelchair Accessible</label><br>
                
-                <input type="checkbox" id="bar_restaurant" name="bar_restaurant">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Bar / Restaurant ">
                 <label for="vehicle3">Bar / Restaurant</label><br>
         
-                <input type="checkbox" id="doorman" name="doorman">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Doorman ">
                 <label for="vehicle1">Doorman</label><br>
-                <input type="checkbox" id="elevator_in_building" name="elevator_in_building">
+                <input type="checkbox" id="amenities" name="amenities[]"value=" Elevator in Building">
                 <label for="vehicle2">Elevator in Building</label><br>
-                <input type="checkbox" id="family_kid_friendly" name="family_kid_friendly">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Family/Kid Friendly ">
                 <label for="vehicle3">Family/Kid Friendly</label><br>
         
             </div>
             <div class="col-md-4">
                 
-                <input type="checkbox" id="free_parking_on_premises" name="free_parking_on_premises">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Free Parking on Premises ">
                 <label for="vehicle1">Free Parking on Premises</label><br>
-                <input type="checkbox" id="heating" name="heating">
+                <input type="checkbox" id="amenities" name="amenities[]" value="Heating">
                 <label for="vehicle2">Heating</label><br>
-                <input type="checkbox" id="indoor_fireplace" name="indoor_fireplace">
+                <input type="checkbox" id="amenities" name="amenities[]" value="Indoor Fireplace ">
                 <label for="vehicle3">Indoor Fireplace</label><br>
         
-                <input type="checkbox" id="Kitchen" name="Kitchen">
+                <input type="checkbox" id="amenities" name="amenities[]"value=" Kitchen">
                 <label for="vehicle1">Kitchen</label><br>
-                <input type="checkbox" id="pets_allowed" name="pets_allowed">
+                <input type="checkbox" id="amenities" name="amenities[]" value="Pets Allowed ">
                 <label for="vehicle2">Pets Allowed</label><br>
-                <input type="checkbox" id="pool" name="pool">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Pool ">
                 <label for="vehicle3">Pool</label><br>
         
-                <input type="checkbox" id="scanner_printer" name="scanner_printer">
+                <input type="checkbox" id="amenities" name="amenities[]"value=" Scanner / Printer">
                 <label for="vehicle1">Scanner / Printer</label><br>
-                <input type="checkbox" id="suitable_for_events" name="suitable_for_events">
+                <input type="checkbox" id="amenities" name="amenities[]"value="Suitable for Events ">
                 <label for="vehicle2">Suitable for Events</label><br>
-                <input type="checkbox" id="washer" name="washer">
+                <input type="checkbox" id="amenities" name="amenities[]"value=" Washer">
                 <label for="vehicle3">Washer</label><br>
         
-                <input type="checkbox" id="wireless_internet" name="wireless_internet">
+                <input type="checkbox" id="amenities" name="amenities[]"value=" Wireless Internet">
                 <label for="vehicle3">Wireless Internet</label><br>
-
+                <span style="color: red">@error('amenities'){{$message}}@enderror</span>
             </div>
         </div>
     </div>
       <br>
       <div>
           <label for="">Terms and Conditions</label><br>
-          <input type="checkbox" id="smoking_allowed" name="smoking_allowed">
+
+          <input type="checkbox" id="terms" name="terms[]" value="Smoking Allowed ">
           <label for="vehicle1">Smoking Allowed</label><br>
-          <input type="checkbox" id=" pets_allowed" name="pets_allowed">
+          <input type="checkbox" id=" terms" name="terms[]" value="Pets Allowed ">
           <label for="vehicle2"> Pets Allowed</label><br>
-          <input type="checkbox" id="party_allowed" name="party_allowed">
+          <input type="checkbox" id="terms" name="terms[]" value="Party Allowed ">
           <label for="vehicle3">Party Allowed</label><br>
-          <input type="checkbox" id=" children_allowed" name="children_allowed">
+          <input type="checkbox" id=" terms" name="terms[]" value=" Children Allowed ">
           <label for="vehicle3"> Children Allowed</label><br>
+          <span style="color: red">@error('terms'){{$message}}@enderror</span>
       </div>
       
         <button type="submit" class="btn btn-success" >Submit</button>
       
     </form>        
     </div>
-      
     <script type="text/javascript">
-        $(document).ready(function() {
-          $(".btn-success").click(function(){ 
-              var lsthmtl = $(".clone").html();
-              $(".increment").after(lsthmtl);
-          });
-          $("body").on("click",".btn-danger",function(){ 
-              $(this).parents(".realprocode").remove();
-          });
+      $(document).ready(function() {
+        $(".btn-success").click(function(){ 
+            var lsthmtl = $(".clone").html();
+            $(".increment").after(lsthmtl);
         });
-    </script>
+        $("body").on("click",".btn-danger",function(){ 
+            $(this).parents(".hdtuto").remove();
+        });
+      });
+  </script>
+    
+  <script>
+    CKEDITOR.replace('content');
+  </script>
 </body>
 </html>
     

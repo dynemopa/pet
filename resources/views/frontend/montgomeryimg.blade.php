@@ -21,20 +21,43 @@
         color: black;
     }
     </style>
+     @foreach ( $file as $value)
+     @php
+     $sleeping_situation=json_decode($value->title->feacture->sleeping_situation);
+     @endphp 
+      @php
+      $amenities=json_decode($value->title->feacture->amenities);
+      
+      @endphp 
+       @php
+       $terms=json_decode($value->title->feacture->terms);
+      
+       @endphp 
+    
+        @php 
+        $str1  = str_replace("[","",$value->filenames);
+        $str2  = str_replace("]","",$str1);
+        $str3  = str_replace('"','',$str2);
+        $str = explode(",",$str3);
+      @endphp
+  
 <!-- Gallery -->
 <div class="container-fluid " style="margin-top: 66px">
     <div class="col-md-12">
         <div class="row">
-            <div class="col-md-6"><img src="https://www.itchotels.com/content/dam/itchotels/in/umbrella/images/headmast-desktop/welcomhotel-bhubaneswar.jpg" width="100%"></div>
+            {{-- @for ($x = 0; $x < count($str); $x++) --}}
+           
+          {{-- @endfor --}}
+            <div class="col-md-6"> <img src="{{asset('uploads/students/'.$str[0])}}" style=" width:100%; height:100%"/></div>
             <div class="col-md-6">
                 <div class="row">
-                    <div class="col-md-6"><img src="https://www.itchotels.com/content/dam/itchotels/in/umbrella/images/headmast-desktop/welcomhotel-bhubaneswar.jpg" width="100%"></div>
-                    <div class="col-md-6"><img src="https://www.itchotels.com/content/dam/itchotels/in/umbrella/images/headmast-desktop/welcomhotel-bhubaneswar.jpg" width="100%"></div>
+                    <div class="col-md-6"><img src="{{asset('uploads/students/'.$str[1])}}" style=" width:100% ;height:100%"/></div>
+                    <div class="col-md-6"><img src="{{asset('uploads/students/'.$str[2])}}" style=" width:100%;height:100%"/></div>
 
                 </div>
                 <div class="row" style=" margin-top: 10px;">
-                    <div class="col-md-6"><img src="https://www.itchotels.com/content/dam/itchotels/in/umbrella/images/headmast-desktop/welcomhotel-bhubaneswar.jpg" width="100%"></div>
-                    <div class="col-md-6"><img src="https://www.itchotels.com/content/dam/itchotels/in/umbrella/images/headmast-desktop/welcomhotel-bhubaneswar.jpg" width="100%"></div>
+                    <div class="col-md-6"><img src="{{asset('uploads/students/'.$str[3])}}" style=" width:100%;height:100%"/></div>
+                    <div class="col-md-6"><img src="{{asset('uploads/students/'.$str[4])}}" style=" width:100%;height:100%"/></div>
 
                 </div>
             </div>
@@ -45,18 +68,15 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-8">
-                    <p class="d113" style="font-size: 22px">Bright 1 BR at 79 Commerce</p>
+                    <p class="d113" style="font-size: 22px">{{$value->title->title}}</p>
                     <p class="d113" ><span><i class="fa fa-home" aria-hidden="true"></i></span>&nbsp; <a href="{{url('/montgomery')}}">Private room</a> &nbsp;&nbsp; <span>&nbsp;<i class="fa fa-building" aria-hidden="true"></i></span> &nbsp;<a href="{{url('/montgomery')}}">Apartment</a> &nbsp;&nbsp;<span>&nbsp;<i class="fa fa-user" aria-hidden="true"></i> &nbsp;8 Guests&nbsp;&nbsp;<span>&nbsp;<i class="fa fa-bed" aria-hidden="true"></i></span>&nbsp;1 Bedroom</p>
-                    <p style=" font-size:13px">Located in the Heart of downtown Montgomery in the Alabama region, there is no equal. Never seen before views of Commerce and Bibb Streets. Walking distance to numerous restaurants, pubs, parks and entertainment. Rosa Parks Museum and Civil Rights Memorial nearby, Dwella at 79 Commerce Street provides accommodations with free private parking.</p>
-                    <p style=" font-size:13px">Featuring large balconies, 10 ft ceilings, granite countertops, high speed symmetrical data services, 55″ Smart TV (included). All units have large walk-in closets with a washer and dryer. Convenient downtown urban living at its finest. The air-conditioned units are furnished with hardwood floors and feature a private bathroom, a flat-screen TV, free WiFi, closet, a living room, an equipped kitchen, patio and views over the city. There’s a seating and/or dining area in some units.</p>
-                    <p style=" font-size:13px">Popular points of interest near the apartment include Dexter Avenue Baptist Church, Alabama Capitol and Montgomery Performing Arts Centre. The nearest airport is Montgomery Regional Airport, 7 miles from Dwella at 79 Commerce Street.</p>
-                    <p style=" font-size:13px">Couples in particular like the location – they rated it 10 for a two-person trip.</p>
+                    <p class="d113" style="font-size: 15px">{!!$value->title->content!!}</p>
                     <div class=" shadow-sm p-3 mb-5  rounded d114 " >
                         <p>Property Price</p>
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-md-6"><p style=" font-size:13px; "><b>Price per night:</b> USD 150</p></div>
-                                <div class="col-md-6"><p style=" font-size:13px; "><b>Cleaning Fee:</b> USD 80 Single Fee</p></div>
+                                <div class="col-md-6"><p style=" font-size:13px; "><b>Price per night:</b> USD {{$value->title->feacture->price_per_night}}</p></div>
+                                <div class="col-md-6"><p style=" font-size:13px; "><b>Cleaning Fee:</b> USD {{$value->title->feacture->cleaning_fee}} Single Fee</p></div>
 
                             </div>
                         </div>
@@ -65,9 +85,16 @@
                         <p>Sleeping Situation</p>
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-md-6"><p style=" font-size:13px; ">Bedroom 1<br>
-                                    1 King Bed<br>
-                                    1 Couch</p></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Sleeping Situation</label><br><br>
+                                        <input type="checkbox" id="sleeping_situation" name="sleeping_situation[]" value="1 King Bed" {{in_array('1 King Bed', $sleeping_situation)? 'checked':''}}  onclick="return false;">
+                                        <label for="">1 King Bed</label><br>
+                                        <input type="checkbox" id="sleeping_situation" name=" sleeping_situation[]" value="1 Couch"  {{in_array('1 Couch', $sleeping_situation)? 'checked':''}}  onclick="return false;">
+                                        <label for="vehicle1">1 Couch</label>
+                                    
+                                    </div>
+                                </div>
                                 </div>
                             </div>
                     </div>
@@ -76,100 +103,131 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <p style=" font-size:13px; ">Address: 79 Commerce St #218</p>
-                                    <p style=" font-size:13px; ">Area: Downtowns, Montgomery</p>
-                                    <p style=" font-size:13px; ">State: AL</p>
-                                    <p style=" font-size:13px; ">Country: United States</p>
+                                    <p style=" font-size:13px; ">Address: {{$value->title->feacture->address}}</p>
+                                    <p style=" font-size:13px; ">Area: {{$value->title->feacture->area}}</p>
+                                    <p style=" font-size:13px; ">State:{{$value->title->feacture->state}}</p>
+                                    <p style=" font-size:13px; ">Country: {{$value->title->feacture->country}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <p style=" font-size:13px; ">City: Montgomery</p>
-                                    <p style=" font-size:13px; ">County: Montgomery</p>
-                                    <p style=" font-size:13px; ">Zip: 36104</p>
-                                </div>
-                            </div>
-                        </div>
-                     </div>
-                     <div class=" shadow-sm p-3 mb-5  rounded d114" style="line-height: 8px" >
-                        <p>Property Details</p>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p style=" font-size:13px; ">Property ID:36471</p>
-                                    <p style=" font-size:13px; ">Rooms: 1</p>
-                                    <p style=" font-size:13px; ">Bathrooms: 1</p>
-                                 
-                                </div>
-                                <div class="col-md-6">
-                                    <p style=" font-size:13px; ">Property Size: 250 ft2</p>
-                                    <p style=" font-size:13px; ">Bedrooms: 1</p>
-                                    <p style=" font-size:13px; ">Please Note: The furniture and decor of your space</p>
-                                    <p style=" font-size:13px; ">may vary from what is pictured here.</p>
+                                    <p style=" font-size:13px; ">City:{{$value->title->feacture->city}}</p>
+                                    <p style=" font-size:13px; ">County:{{$value->title->feacture->country}}</p>
+                                    <p style=" font-size:13px; ">Zip:{{$value->title->feacture->zip}}</p>
                                 </div>
                             </div>
                         </div>
                      </div>
-                     <div class=" shadow-sm p-3 mb-5  rounded d114" style="line-height: 8px" >
-                        <p>Amenities and Features</p>
-                        <p style=" font-size:14px; ">Other Features</p>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p style=" font-size:13px; "><i class="fa fa-check d115" aria-hidden="true"></i>&nbsp; Air Conditioner</p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Breakfast Included</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-check d115" aria-hidden="true"></i>&nbsp; Dryer</p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Essentials</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Fax</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Gym</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Hot Tub</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Internet</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Non Smoking</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del>.</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Projector(s)</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Smoking Allowed</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-check d115" aria-hidden="true"></i>&nbsp; TV</p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Wheelchair Accessible</del></p>
+                            <div class=" shadow-sm p-3 mb-5  rounded d114" style="line-height: 8px" >
+                                <p>Property Details</p>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p style=" font-size:13px; ">Property ID:{{$value->title->feacture->property_id}}</p>
+                                            <p style=" font-size:13px; ">Rooms: {{$value->title->feacture->room}}</p>
+                                            <p style=" font-size:13px; ">Bathrooms: {{$value->title->feacture->bathrooms}}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p style=" font-size:13px; ">Property Size:{{$value->title->feacture->property_size}} ft2</p>
+                                            <p style=" font-size:13px; ">Bedrooms: {{$value->title->feacture->bedrooms}}</p>
+                                            <p style=" font-size:13px; ">Please Note:{{$value->title->feacture->please_note}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" shadow-sm p-3 mb-5  rounded d114" style="line-height: 8px" >
+                                <p>Amenities and Features</p>
+                                <p style=" font-size:14px; ">Other Features</p>
+                                <div class="col-md-12">
+                                    <div class="row" style="line-height: 38px;">
+                                        <div class="col-md-4">
+                                        
+                                            <input type="checkbox" id="amenities" name="amenities[]" value="Air Conditioner" {{in_array('Air Conditioner', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle1"> Air Conditioner</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Breakfast Included"  {{in_array('Breakfast Included', $amenities)? 'checked':''}}  onclick="return false;" >
+                                            <label for="vehicle2">Breakfast Included</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Dryer "  {{in_array('Dryer', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle3"> Dryer</label><br>
                                     
-                                 
-                                </div>
-                                <div class="col-md-6">
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Bar / Restaurant</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-check d115" aria-hidden="true"></i>&nbsp; Doorman</p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Elevator in Building</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Family/Kid Friendly</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-check d115" aria-hidden="true"></i>&nbsp; Free Parking on Premises</p>
-                                    <p style=" font-size:13px; "><i class="fa fa-check d115" aria-hidden="true"></i>&nbsp; Heating</p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Indoor Fireplace</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Kitchen</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Pets Allowed</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Pool</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Scanner / Printer</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Suitable for Events</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-check d115" aria-hidden="true"></i>&nbsp; Washer</p>
-                                    <p style=" font-size:13px; "><i class="fa fa-check d115" aria-hidden="true"></i>&nbsp; Wireless Internet</p>
-
-                                   
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Essentials "  {{in_array('Essentials', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle1">Essentials</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Fax "  {{in_array('Fax', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle2">Fax</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value=" Gym"  {{in_array('Gym', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle3"> Gym</label><br>
+                                    
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Hot Tub "  {{in_array('Hot Tub', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle1">Hot Tub</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value=" Internet"  {{in_array('Internet', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle2">Internet</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Non Smoking "  {{in_array('Non Smoking', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle3"> Non Smoking</label><br>  
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="checkbox" id="amenities" name="amenities[]"value=" Phone (booth/lines)"  {{in_array('Phone (booth/lines)', $amenities)? 'checked':''}}  onclick="return false;" >
+                                            <label for="vehicle1">Phone (booth/lines)</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Projector(s) " {{in_array('Projector(s)', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle2">Projector(s)</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Smoking Allowed " {{in_array('Smoking Allowed', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle3"> Smoking Allowed</label><br>
+                                    
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="TV " {{in_array('TV', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle1">TV</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Wheelchair Accessible " {{in_array('Wheelchair Accessible', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle2">Wheelchair Accessible</label><br>
+                                        
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Bar / Restaurant "  {{in_array('Bar / Restaurant', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle3">Bar / Restaurant</label><br>
+                                    
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Doorman "  {{in_array('Doorman', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle1">Doorman</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value=" Elevator in Building" {{in_array('Elevator in Building', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle2">Elevator in Building</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Family/Kid Friendly " {{in_array('Family/Kid Friendly', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle3">Family/Kid Friendly</label><br>
+                                    
+                                        </div>
+                                        <div class="col-md-4">
+                                            
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Free Parking on Premises "  {{in_array('Free Parking on Premises', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle1">Free Parking on Premises</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]" value="Heating"  {{in_array('Heating', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle2">Heating</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]" value="Indoor Fireplace "  {{in_array('Indoor Fireplace', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle3">Indoor Fireplace</label><br>
+                                    
+                                            <input type="checkbox" id="amenities" name="amenities[]"value=" Kitchen"  {{in_array('Kitchen', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle1">Kitchen</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]" value="Pets Allowed " {{in_array('Pets Allowed', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle2">Pets Allowed</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Pool " {{in_array('Pool', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle3">Pool</label><br>
+                                    
+                                            <input type="checkbox" id="amenities" name="amenities[]"value=" Scanner / Printer" {{in_array('Scanner / Printer', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle1">Scanner / Printer</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value="Suitable for Events "  {{in_array('Suitable for Events', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle2">Suitable for Events</label><br>
+                                            <input type="checkbox" id="amenities" name="amenities[]"value=" Washer"  {{in_array('Washer', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle3">Washer</label><br>
+                                    
+                                            <input type="checkbox" id="amenities" name="amenities[]"value=" Wireless Internet"  {{in_array('Wireless Internet', $amenities)? 'checked':''}}  onclick="return false;">
+                                            <label for="vehicle3">Wireless Internet</label><br>
+                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                     </div>
-                     <div class=" shadow p-3 mb-5 rounded d114" style="line-height: 8px" >
-                        <p style="font-size: 20px">Terms and Conditions</p>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del>  Smoking Allowed</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del> Party Allowed</del></p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del>Pets Allowed</del></p>
-                                    <p style=" font-size:13px; "><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<del>Children Allowed</del></p>
-                                </div>
-                                <p class="d115">Cancellation Policy</p>
-                                <p style="line-height: normal"><b>Cancellation Policy:</b> • Guests can cancel up to 5 days before check-in with no cancellation fees. • We offer flexible cancellations for all reservations made on DwellaStays.com. The specific policy for your reservation is dependent on the rate selected at the time of booking. • For longer stays that are paid on a monthly basis, we require at least 30 days notice to cancel or modify without fees. • A 24-hour grace period applies for all stays before check-in begins. You may cancel any reservation up to 24 hours after booking as long as it is at least one day before your check-in.</p>
+                            <div class=" shadow p-3 mb-5 rounded d114" style="line-height: 27px" >
+                                <p style="font-size: 20px">Terms and Conditions</p>
+                                <input type="checkbox" id="terms" name="terms[]" value="Smoking Allowed "  {{in_array('Smoking Allowed', $terms)? 'checked':''}}  onclick="return false;">
+                                <label for="vehicle1">Smoking Allowed</label><br>
+                                <input type="checkbox" id=" terms" name="terms[]" value="Pets Allowed "  {{in_array('Pets Allowed', $terms)? 'checked':''}}  onclick="return false;">
+                                <label for="vehicle2"> Pets Allowed</label><br>
+                                <input type="checkbox" id="terms" name="terms[]" value="Party Allowed "  {{in_array('Party Allowed', $terms)? 'checked':''}}  onclick="return false;">
+                                <label for="vehicle3">Party Allowed</label><br>
+                                <input type="checkbox" id=" terms" name="terms[]" value=" Children Allowed "  {{in_array('Children Allowed', $terms)? 'checked':''}}  onclick="return false;">
+                                <label for="vehicle3"> Children Allowed</label><br>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                </div> 
+           
 
                 <div class="col-md-4" style=" margin-top:10px"> 
                     <div class="d113" style="    background-color: #8b6013e0; padding: 11px;">
@@ -271,7 +329,7 @@
         </div>
     </div>
 </div>
-
+@endforeach
 
 
   @endsection

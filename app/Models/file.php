@@ -11,8 +11,13 @@ class file extends Model
     protected $fillable = [
         'filenames'
     ];
+    protected $primaryKey = 'files_id';
     public function setFilenamesAttribute($value)
     {
         $this->attributes['filenames'] = json_encode($value);
+    }
+    public function title()
+    {
+        return $this->hasOne(title::class,'files_id' ,'files_id');
     }
 }
