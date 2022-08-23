@@ -3,6 +3,7 @@
 @section('content')
 
 
+{{-- {{dd($value->title->title)}} --}}
 <div class="container-fluid">
   <div class="col-md-12">
     <div class="row" style="margin-top: 70px">
@@ -138,73 +139,30 @@
              
             </div>
           </div>
+         
           <section>
             <p>Listings in "Montgomery"</p>
+            @foreach ( $file as $value)
+            @php 
+            $str1  = str_replace("[","",$value->filenames);
+            $str2  = str_replace("]","",$str1);
+            $str3  = str_replace('"','',$str2);
+            $str = explode(",",$str3);
+          @endphp
             <div class="col-md-12">
               <div class="row d111">
-                <div class="col-md-4"><a href="{{url('/montgomeryimg')}}"><img src="https://mb5.bfe.myftpupload.com/wp-content/uploads/2022/03/b3ad365b-b1ff-4a9b-9e6f-b2b201fdaab7-400x314.jpeg" width="100%" class="d11"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD 150 /night</p></div>
+                <div class="col-md-4"><a href="{{url('/montgomeryimg')}}/{{$value->files_id}}"><img src="{{asset('uploads/students/'.$str[0])}}" height="100%"  width="100%" class="d11"/></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD  /night</p></div>
+                
                 <div class="col-md-8">
-                  <p class="d113"><a href="{{url('/montgomeryimg')}}">Spacious 1BR at 79 Commerce</a></p>
-                  <p class="d112">Located in the Heart of downtown Montgomery in the Alabama region, there is no equal. ...</p>
-                  <p class="d112"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;Downtown Montgomery, Downtowns, Montgomery, Montgomery</p>
+                  <p class="d113"><a href="{{url('/montgomeryimg')}}">{{$value->title->title}}</a></p>
+                  <p class="d112" style="color: gray"> {!!Str::limit($value->title->content, 70)!!}</p>
+                 
+                  <p class="d112"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;{{$value->title->feacture->address}}</p>
                   <p class="d112"><i class="fa fa-home" aria-hidden="true"></i> &nbsp;Apartment / Private room</p>
                 </div>
               </div>
             </div>
-
-            <div class="col-md-12">
-              <div class="row d111">
-                <div class="col-md-4"><a href="{{url('/montgomeryimg')}}"><img src="https://mb5.bfe.myftpupload.com/wp-content/uploads/2015/04/05-400x314.jpeg" width="100%" class="d11"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD 150 /night</p></div>
-                <div class="col-md-8">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span style="    margin-left: 295px;background-color: #111010; color: white;">Available</span>
-                  <p class="d113"><a href="{{url('/montgomeryimg')}}">Charming 1BR at 79 Commerce</a></p>
-                  <p class="d112">Located in the Heart of downtown Montgomery in the Alabama region, there is no equal. ...</p>
-                  <p class="d112"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;Downtown Montgomery, Downtowns, Montgomery, Montgomery</p>
-                  <p class="d112"><i class="fa fa-home" aria-hidden="true"></i> &nbsp;Apartment / Private room</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-12">
-              <div class="row d111">
-                <div class="col-md-4"><a href="{{url('/montgomeryimg')}}"><img src="https://mb5.bfe.myftpupload.com/wp-content/uploads/2022/03/04-400x314.jpg" width="100%" class="d11"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD 150 /night</p></div>
-                <div class="col-md-8">
-                  <p class="d113"><a href="{{url('/montgomeryimg')}}">Bright 1 BR at 79 Commerce</a></p>
-                  <p class="d112">Located in the Heart of downtown Montgomery in the Alabama region, there is no equal. ...</p>
-                  <p class="d112"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;Downtowns, Montgomery, Montgomery</p>
-                  <p class="d112"><i class="fa fa-home" aria-hidden="true"></i> &nbsp;Apartment / Private room</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-md-12">
-              <div class="row d111">
-                <div class="col-md-4"><a href="{{url('/montgomeryimg')}}"><img src="https://mb5.bfe.myftpupload.com/wp-content/uploads/2022/03/02-1-400x314.jpeg" width="100%" class="d11"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD 150 /night</p></div>
-                <div class="col-md-8">
-                  <p class="d113"><a href="{{url('/montgomeryimg')}}">Vibrant 1BR at 79 Commerce</a></p>
-                  <p class="d112">Located in the Heart of downtown Montgomery in the Alabama region, there is no equal. ...</p>
-                  <p class="d112"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;Downtowns, Montgomery, Montgomery</p>
-                  <p class="d112"><i class="fa fa-home" aria-hidden="true"></i> &nbsp;Apartment / Private room</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-12">
-              <div class="row d111">
-                <div class="col-md-4"><a href="{{url('/montgomeryimg')}}"><img src="https://mb5.bfe.myftpupload.com/wp-content/uploads/2022/03/01-400x314.jpeg" width="100%" class="d11"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD 150 /night</p></div>
-                <div class="col-md-8">
-                  <p class="d113"><a href="{{url('/montgomeryimg')}}">Cozy 1BR at 79 Commerce</a></p>
-                  <p class="d112">Located in the Heart of downtown Montgomery in the Alabama region, there is no equal. ...</p>
-                  <p class="d112"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;Downtowns, Montgomery, Montgomery</p>
-                  <p class="d112"><i class="fa fa-home" aria-hidden="true"></i> &nbsp;Apartment / Private room</p>
-                </div>
-              </div>
-            </div>
+            @endforeach
           </section>
       </div>
      
@@ -223,5 +181,6 @@
     </div>
   </div>
 </div>
+
 
 @endsection

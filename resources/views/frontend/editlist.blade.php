@@ -11,7 +11,7 @@
   <title>Laravel 8 Multiple Image Upload Real Programmer</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- 
+
 </head>
 <body>
   <a href="{{route('showlisting')}}"> <button type="button" class="btn btn-primary text-right">BACK</button></a>
@@ -47,14 +47,21 @@
          
           @endphp 
 
+        @php 
+        $str1  = str_replace("[","",$value->filenames);
+        $str2  = str_replace("]","",$str1);
+        $str3  = str_replace('"','',$str2);
+        $str = explode(",",$str3);
+        @endphp
       
 
    
    
-     <form  method="get"  action=" {{url('/updatelist/')}}/{{$value->files_id}}/{{$value->title->title_id}}/{{$value->title->feacture->id}}"  enctype="multipart/form-data">
+     <form  method="post"  action=" {{url('/updatelist/')}}/{{$value->files_id}}/{{$value->title->title_id}}/{{$value->title->feacture->id}}"   enctype="multipart/form-data">
        
         @csrf
-        {{-- <div class="input-group realprocode control-group lst increment" >
+       
+        <div class="input-group realprocode control-group lst increment" >
             <input type="file" name="filenames[]" class="myfrm form-control" ><br>
            
            <div class="input-group-btn" style="padding-left: 10px"> 
@@ -68,7 +75,7 @@
                <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
              </div>
            </div>
-         </div> --}}
+         </div>
 
         <div class="form-group">
             <label for="">title</label>
@@ -165,7 +172,7 @@
         </div>
         <div class="form-group">
             <label for="">please_note</label>
-            <input type="text" class="form-control" name="please_note" id="please_note"value="{{$value->title->feacture->please_note}}" >
+            <textarea type="text" class="form-control" name="please_note" id="please_note" >{{$value->title->feacture->please_note}}</textarea>
         </div>
         <div class="col-md-12">
             <label for="">amenities and Features</label><br>
@@ -260,12 +267,10 @@
             <input type="checkbox" id=" terms" name="terms[]" value=" Children Allowed "  {{in_array('Children Allowed', $terms)? 'checked':''}}  >
             <label for="vehicle3"> Children Allowed</label><br>
         </div>
-        <button type="submit" class="btn btn-success" >Submit</button>
+        <button type="submit" class="btn btn-success"  onclick="return confirm('Are you sure?')" >Submit</button>
     </form>    
     @endforeach    
-    <script>
-        CKEDITOR.replace('content1');
-      </script>
+   
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -278,7 +283,9 @@
       });
     });
 </script>
-    
+<script>
+    CKEDITOR.replace('content');
+  </script>
 </body>
 </html>
  @endsection

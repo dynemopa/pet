@@ -8,13 +8,29 @@
           <div class="col-lg-6 col-7">
             <h6 class="h2 text-white d-inline-block mb-0">Template Information</h6>
           </div>
+          <form action="" method="get" class="col-9 ">
+            <div class="form-group">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-8">
+                    <input type="search" name="search" id="search" class="form-control" placeholder="Enter Name And Email For Search" value="{{$search}}">
+                  </div>
+                  <div class="col-md-2"> <button class="btn btn-primary">Search</button></div>
+                  <div class="col-md-2">  <a href="{{url('/list')}}">
+                    <button class="btn btn-primary" type="button">Reset</button>
+                    </a></div>
 
-          <div class="col-lg-6 col-7">
-      
-          </div>
+                </div>
+              </div>
+             </div>
+          </form>
+         
         </div>
       </div>
     </div>
+  </div>
+  <div>
+
   </div>
 
   <div class="container-fluid mt--6">

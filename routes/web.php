@@ -46,7 +46,7 @@ Route::get('/favorites' ,[FavoritesController::class,'index']);
 Route::get('/parthership' ,[PartnershipController::class,'index']);
 Route::get('/montgomery' ,[MontgomeryController::class,'index']);
 Route::get('/birmingham' ,[BirminghamController::class,'index']);
-Route::get('/montgomeryimg' ,[ MontgomeryimgController::class,'index']);
+Route::get('/montgomeryimg/{files_id}' ,[ MontgomeryimgController::class,'index']);
 Route::get('/delete/{id}',[ListController::class,'delete']);
 Route::get('/edit/{id}',[ListController::class,'edit']);
 Route::put('/Update-data/{id}',[ListController::class,'update']);
@@ -78,7 +78,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 	Route::get('/showlisting/',[ListingController::class,'showlisting'])->name('showlisting');
 	Route::get('/listdelete/{file_id}/{title_id}/{feacture_id}',[ListingController::class,'listdelete'])->name('listdelete');
 	Route::get('/listedit/{files_id}/{title_id}/{feacture_id}',[ListingController::class,'listedit'])->name('listedit');
-	Route::get('/updatelist/{files_id}/{title_id}/{feacture_id}',[ListingController::class,'updatelist'])->name('updatelist');
+	Route::post('/updatelist/{files_id}/{title_id}/{feacture_id}',[ListingController::class,'updatelist'])->name('updatelist');
 
 	Route::get('/showlist/{file_id}',[ListingController::class,'showlist'])->name('showlist');
 	

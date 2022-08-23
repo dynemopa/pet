@@ -1,6 +1,7 @@
 @extends('frontend.layout.main')
 
 @section('content')
+
 <style>
     .d113
     {

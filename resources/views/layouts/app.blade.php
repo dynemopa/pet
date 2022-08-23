@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css" />
 
     <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
@@ -169,6 +169,8 @@
       <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
+      <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+
       <script>
         $(document).ready(function() 
         {
@@ -177,6 +179,20 @@
             height: 400
           });
         });
+      </script>
+
+      <script>
+        CKEDITOR.replace('please_note001');
+      </script>
+       <script>
+        CKEDITOR.replace('content001');
+      </script>
+
+      <script>
+        CKEDITOR.replace('content');
+      </script>
+      <script>
+        CKEDITOR.replace('please_note');
       </script>
     </div>
   </body>

@@ -8,11 +8,20 @@ use Auth;
 use Redirect;
 class ListController extends Controller
 {
-    public function list()
+    public function list(Request $request)
     {
-        
-    $user=User::get();
-    $data= compact('user');
+       
+        $search=$request['search']?? "";
+        if($search !="")
+        {
+            $user=user::where('name','LIKE',"%$search%")->orwhere('email','LIKE',"%$search%")->get();
+        }
+        else
+        {
+            $user=User::get();
+        }
+   
+    $data= compact('user','search');
    
    
      return  view('frontend.list',($data));

@@ -24,7 +24,7 @@ class FileController extends Controller
             'price_per_night'=>'required|between:0,99.99',
             'cleaning_fee'=>'required',
             'sleeping_situation'=>'required',
-            'address'=>'required|alpha_num',
+            'address'=>'required',
             'area'=>'required|alpha_num',
             'state'=>'required|alpha',
             'country'=>'required',

@@ -4,6 +4,7 @@
 @section('content')
 
 
+
         @foreach ( $file as $value)
         @php
         $sleeping_situation=json_decode($value->title->feacture->sleeping_situation);
@@ -40,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label for="">Content</label>
-                <input type="text" class="form-control" id="title"value="{{$value->title->content}}" readonly>
+                <textarea class="form-control" id="content" name="content001" rows="4" cols="50" readonly >{{$value->title->content}}</textarea><br>
             </div>
             <div class="form-group">
                 <label for="">Price Per Night</label>
@@ -100,11 +101,11 @@
             </div>
             <div class="form-group">
                 <label for="">bedrooms</label>
-                <input type="text" class="form-control" id="title"value="{{$value->title->feacture->bedrooms}}" readonly>
+                <input type="text" class="form-control" id="bedrooms"value="{{$value->title->feacture->bedrooms}}" readonly>
             </div>
             <div class="form-group">
                 <label for="">please_note</label>
-                <input type="text" class="form-control" id="title"value="{{$value->title->feacture->please_note}}" readonly>
+                <textarea type="text" class="form-control" id="please_note001"  readonly>{{$value->title->feacture->please_note}}</textarea>
             </div>
             <div class="col-md-12">
                 <label for="">amenities and Features</label><br>
@@ -206,6 +207,7 @@
         
        
         @endforeach
+          
     
     
 @endsection

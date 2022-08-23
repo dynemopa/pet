@@ -16,7 +16,7 @@ class ListingController extends Controller
     }
     public function showlisting()
     {
-        $file=file::with(['title','title.feacture'])->get();
+        $file=file::with(['title','title.feacture'])->paginate(2);
        
        
         return view('frontend.showlisting',compact('file'));
@@ -42,7 +42,7 @@ class ListingController extends Controller
     public function showlist($file_id)
     {
         $file=file::with('title','title.feacture')->where('files_id','=',$file_id)->get();
-        return view('frontend.montgomeryimg',compact('file'));
+        return view('frontend.showall',compact('file'));
      }
     public function listedit( $files_id,$title_id,$feacture_id)
     {
@@ -52,13 +52,52 @@ class ListingController extends Controller
     }
     public function updatelist(Request $request,$file_id,$title_id,$feacture_id )
     {
-      
-      
+        $request->validate( [
+           
+            'title'=>'required|max:255|min:10',
+            'content'=>'required',
+            'price_per_night'=>'required|between:0,99.99',
+            'cleaning_fee'=>'required',
+            'sleeping_situation'=>'required',
+            'address'=>'required',
+            'area'=>'required|alpha_num',
+            'state'=>'required|alpha',
+            'country'=>'required',
+            'city'=>'required|alpha_num',
+            'zip'=>'required',
+            'property_id'=>'required',
+            'room'=>'required',
+            'bathrooms'=>'required',
+            'property_size'=>'required',
+            'bedrooms'=>'required',
+            'please_note'=>'required',
+            'amenities'=>'required',
+            'terms'=>'required',
 
+        ]);
+        $file = file::find($file_id);
+        $data=array();
 
-        $file=file::find($file_id);
-         $filesid=$file->files_id;
-         $file->save();
+        if($request->hasfile('filenames'))
+    
+        {
+           
+           foreach($request->file('filenames') as $image)
+           {
+
+               $name=$image->getClientOriginalName();
+               $filenames=time().'.'.$name;
+               $image->move('uploads/students/', $filenames);
+               $data[] = $filenames;  
+           }
+        }
+       else{
+        $data=$file->filenames;  
+       }
+        $file = file::find($file_id);
+        $file->filenames=($data);
+        $filesid=$file->files_id;
+        $file->save();
 
          $filesid=$file->files_id;
         

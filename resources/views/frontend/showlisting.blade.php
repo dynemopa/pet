@@ -66,15 +66,15 @@
                         
                     
                         <td>
-                          @for ($x = 0; $x < count($str); $x++)
-                            <img src="{{asset('uploads/students/'.$str[$x])}}" style="height:50px; width:50px"/>
-                          @endfor
+                         
+                            <img src="{{asset('uploads/students/'.$str[0])}}" style="height:50px; width:50px"/>
+                         
                         </td>
                    
 
 
                         <td>{{$value->title->title}}</td>
-                       <td>{!!$value->title->content!!}</td>
+                       <td> {!!Str::limit($value->title->content,30)!!}</td>
                         <td>{{$value->title->feacture->price_per_night}}</td>
                         <td>{{$value->title->feacture->address}}</td>
 
@@ -83,7 +83,7 @@
                             <span class="mr-2"><i class="fa fa-eye" aria-hidden="true"></i></span>
                           </a>
 
-                         <a href="{{url('listedit/')}}/{{$value->files_id}}/{{$value->title->title_id}}/{{$value->title->feacture->id}}"  class="text-white"> 
+                         <a href="{{url('listedit/')}}/{{$value->files_id}}/{{$value->title->title_id}}/{{$value->title->feacture->id}}"   class="text-white"> 
                             <span class="mr-2"><i class="fa fa-edit" title="View User"></i></span>
                           
 
@@ -130,6 +130,16 @@
                       @endforeach 
               </tbody>
             </table>
+          </div>
+            <div class="row" style=" margin-top:30px">
+              {{$file->links()}}
+            </div>
+            <style>
+              .w-5
+              {
+                display: none;
+              }
+            </style>
          
   
   
