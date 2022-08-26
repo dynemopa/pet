@@ -8,6 +8,8 @@
   <div class="col-md-12">
     <div class="row" style="margin-top: 70px">
       <div class="col-md-7" style="height:600px; overflow-y:scroll">
+
+        <form action="" method="get" class="col-9 ">
           <div class="row">
             <div class="col-md-8">
               <div class="inputWithIcon">
@@ -41,20 +43,15 @@
 
             <div class="col-md-4">
               <div class="inputWithIcon">
-                <input type="text" placeholder="Rooms"  list="browsers" >
-                <datalist id="browsers" style="height: 20px">
+                <select name="room" id="room" class="form-control">
+                  <option value="">Room</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                   <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </datalist>
-                <i class="fa fa-home fa-lg fa-fw" aria-hidden="true"></i>  
+                </select>
               </div>
             </div>
           </div>
@@ -95,40 +92,32 @@
             </div>
             <div class="col-md-4">
               <div class="inputWithIcon">
-                <input type="text" placeholder="Bedrooms"  list="Bedrooms" >
-                <datalist id="Bedrooms"  style="height: 20px">
-                  
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </datalist>
-                <i class="fa fa-bed fa-lg fa-fw" aria-hidden="true"></i>  
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="inputWithIcon">
-                <input type="text" placeholder="Baths"  list="Baths" >
-                <datalist id="Baths"  style="height: 20px">
+                <select name="bedrooms" id="bedrooms" class="form-control">
+                  <option value="">Bedrooms</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                   <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                 </datalist>
-                <i class="fa  fa-bath fa-lg fa-fw" aria-hidden="true"></i>  
+                </select>
+               
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="inputWithIcon">
+               
+                <select name="bathrooms" id="bathrooms" class="form-control">
+                  <option value="">Bathrooms</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </select>
+              
               </div>
             </div>
           </div>
@@ -139,6 +128,13 @@
              
             </div>
           </div>
+          <div class="col-md-2"> <button class="btn btn-primary">Search</button></div>
+          <div class="col-md-2">  <a href="{{url('/montgomery')}}">
+            <button class="btn btn-primary" type="button">Reset</button>
+            </a></div>
+
+        </form>
+       
          
           <section>
             <p>Listings in "Montgomery"</p>
@@ -151,10 +147,10 @@
           @endphp
             <div class="col-md-12">
               <div class="row d111">
-                <div class="col-md-4"><a href="{{url('/montgomeryimg')}}/{{$value->files_id}}"><img src="{{asset('uploads/students/'.$str[0])}}" height="100%"  width="100%" class="d11"/></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD  /night</p></div>
+                <div class="col-md-4"><a href="{{url('/montgomeryimg')}}/{{$value->files_id}}"><img src="{{asset('uploads/students/'.$str[0])}}" height="100%"  width="100%" class="d11"/></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD {{$value->title->feacture->price_per_night}} /night</p></div>
                 
                 <div class="col-md-8">
-                  <p class="d113"><a href="{{url('/montgomeryimg')}}">{{$value->title->title}}</a></p>
+                  <p class="d113"><a href="{{url('/montgomeryimg')}}/{{$value->files_id}}">{{$value->title->title}}</a></p>
                   <p class="d112" style="color: gray"> {!!Str::limit($value->title->content, 70)!!}</p>
                  
                   <p class="d112"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;{{$value->title->feacture->address}}</p>

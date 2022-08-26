@@ -45,24 +45,24 @@
     <div class="form-group">
         <label for="">title</label>
        
-        <input type="text" id="title"  class="form-control"  name="title"  value="{{old('title')}}" >
+        <input type="text" id="title"  class="form-control"  name="title"  value="{{old('title')}}" required >
        <span style="color: red">@error('title'){{$message}}@enderror</span>
       </div>
       <div class="form-group">
         <label for="">content</label>
 
-     <textarea class="form-control" id="content" name="content" rows="4" cols="50"  >{{ old('content') }}</textarea><br>
+     <textarea class="form-control" id="content" name="content" rows="4" cols="50" required >{{ old('content') }}</textarea><br>
      <span style="color: red">@error('content'){{$message}}@enderror</span>
       
       </div>
       <div class="form-group">
           <label for="">Price per Night</label>
-          <input type="text" class="form-control" id="price_per_night" name="price_per_night" value="{{old('price_per_night')}}" ><br>
+          <input type="text" class="form-control" id="price_per_night" name="price_per_night" value="{{old('price_per_night')}}"required ><br>
           <span style="color: red">@error('price_per_night'){{$message}}@enderror</span>
       </div>
       <div class="form-group">
           <label for="">Cleaning Fee: </label>
-          <input type="text" class="form-control" id="cleaning_fee" name="cleaning_fee" value="{{old('cleaning_fee')}}" ><br>
+          <input type="text" class="form-control" id="cleaning_fee" name="cleaning_fee" value="{{old('cleaning_fee')}}" required><br>
           <span style="color: red">@error('cleaning_fee'){{$message}}@enderror</span>
       </div>
       <div class="form-group">
@@ -74,21 +74,21 @@
           <span style="color: red">@error('sleeping_situation'){{$message}}@enderror</span>
       </div>
       <div  class="form-group">
-          <label for="">Property Address</label>
+          <h3>Property Address</h3>
           
           <div class="form-group">
               <label for="">Address:</label>
-              <input type="text" class="form-control" id="address" name="address" data-geocomplete="address"><br>
+              <input type="text" class="form-control" id="address" name="address" data-geocomplete="address" required><br>
               <span style="color: red">@error('address'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
               <label for="">Area:</label>
-              <input type="text" class="form-control" id="area" name="area" value="{{old('area')}}" ><br>
+              <input type="text" class="form-control" id="area" name="area" value="{{old('area')}}" required ><br>
               <span style="color: red">@error('area'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
               <label for="">State:</label>
-              <input type="text" class="form-control" id="state" name="state" value="{{old('state')}}" >
+              <input type="text" class="form-control" id="state" name="state" value="{{old('state')}}" required>
               <span style="color: red">@error('state'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
@@ -341,12 +341,12 @@
           </div>
           <div class="form-group">
               <label for="">City:</label>
-              <input type="text" class="form-control" id="city" name="city"  value="{{old('city')}}" >
+              <input type="text" class="form-control" id="city" name="city"  value="{{old('city')}}" required>
               <span style="color: red">@error('city'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
               <label for="">Zip</label>
-              <input type="number" class="form-control" id="zip" name="zip" value="{{old('zip')}}" >
+              <input type="number" class="form-control" id="zip" name="zip" value="{{old('zip')}}" required>
               <span style="color: red">@error('zip'){{$message}}@enderror</span>
           </div>
       </div>
@@ -354,7 +354,7 @@
           <label for="">Property Details</label>
           <div class="form-group">
               <label for="">Property ID</label>
-              <input type="number" class="form-control" id="property_id" name="property_id" value="{{old('property_id')}}" >
+              <input type="number" class="form-control" id="property_id" name="property_id" value="{{old('property_id')}}"required >
               <span style="color: red">@error('property_id'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
@@ -385,7 +385,7 @@
           </div>
           <div class="form-group">
               <label for="">Property Size:</label>
-              <input type="text" class="form-control" id="property_size:" name="property_size" placeholder=" Example:25ft2" value="{{old('property_size')}}" ><br>
+              <input type="text" class="form-control" id="property_size:" name="property_size" placeholder=" Example:25ft2" value="{{old('property_size')}}" required ><br>
               <span style="color: red">@error('property_size'){{$message}}@enderror</span>
           </div>
           <div class="form-group">
@@ -405,7 +405,7 @@
           <div class="form-group">
               <label for="">Please Note:</label>
               
-              <textarea  rows="4" cols="50" class="form-control" id="please_note" name="please_note"  value="{{old('please_note')}}" ></textarea><br>
+              <textarea  rows="4" cols="50" class="form-control" id="please_note" name="please_note"  value="{{old('please_note')}}" required></textarea><br>
               <span style="color: red">@error('please_note'){{$message}}@enderror</span>
           </div>
       </div><br>

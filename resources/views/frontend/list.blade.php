@@ -16,7 +16,7 @@
                     <input type="search" name="search" id="search" class="form-control" placeholder="Enter Name And Email For Search" value="{{$search}}">
                   </div>
                   <div class="col-md-2"> <button class="btn btn-primary">Search</button></div>
-                  <div class="col-md-2">  <a href="{{url('/list')}}">
+                  <div class="col-md-2">  
                     <button class="btn btn-primary" type="button">Reset</button>
                     </a></div>
 

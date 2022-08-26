@@ -131,7 +131,7 @@
               </tbody>
             </table>
           </div>
-            <div class="row" style=" margin-top:30px">
+            <div class="row" style=" margin-top:30px; ">
               {{$file->links()}}
             </div>
             <style>

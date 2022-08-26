@@ -20,9 +20,7 @@ class ProfilerController extends Controller
     {
        $userid = Auth::user()->id;
         $user=user::where('id','=',$userid)->delete();
-       
         return view('/frontend/index');
- 
     }
     public function update(Request $request)
     {

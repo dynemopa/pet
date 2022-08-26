@@ -16,7 +16,7 @@ class ListingController extends Controller
     }
     public function showlisting()
     {
-        $file=file::with(['title','title.feacture'])->paginate(2);
+        $file=file::with(['title','title.feacture'])->paginate(3);
        
        
         return view('frontend.showlisting',compact('file'));
@@ -79,37 +79,31 @@ class ListingController extends Controller
         $data=array();
 
         if($request->hasfile('filenames'))
-    
         {
-           
            foreach($request->file('filenames') as $image)
            {
-
                $name=$image->getClientOriginalName();
                $filenames=time().'.'.$name;
                $image->move('uploads/students/', $filenames);
                $data[] = $filenames;  
            }
         }
-       else{
+       else
+       {
         $data=$file->filenames;  
        }
         $file = file::find($file_id);
         $file->filenames=($data);
         $filesid=$file->files_id;
         $file->save();
-
-         $filesid=$file->files_id;
-        
-         $title=title::find($title_id);
+        $filesid=$file->files_id;
+        $title=title::find($title_id);
         $title->title= $request['title'];
         $title->content= $request['content'];
         $title->files_id=$filesid;
         $title->save();
         $titleid = $title->title_id;
-
-         $feacture=feacture::find($feacture_id);
-     
+        $feacture=feacture::find($feacture_id);
         $feacture->title_id=$titleid;
         $feacture->price_per_night= $request['price_per_night'];
         $feacture->cleaning_fee= $request['cleaning_fee'];
@@ -128,8 +122,6 @@ class ListingController extends Controller
         $feacture->please_note= $request['please_note'];
         $feacture->amenities=json_encode($request->amenities);
         $feacture->terms=json_encode($request->terms);
-        
-
         $feacture->save();
          return back()->with('success', 'Your Data Updated successfully ');
     }

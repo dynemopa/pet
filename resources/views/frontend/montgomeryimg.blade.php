@@ -22,6 +22,8 @@
         color: black;
     }
     </style>
+  
+
      @foreach ( $file as $value)
      @php
      $sleeping_situation=json_decode($value->title->feacture->sleeping_situation);
@@ -41,7 +43,8 @@
         $str3  = str_replace('"','',$str2);
         $str = explode(",",$str3);
       @endphp
-  
+
+
 <!-- Gallery -->
 <div class="container-fluid " style="margin-top: 66px">
     <div class="col-md-12">
@@ -265,11 +268,12 @@
                     <div style="  padding: 26px; background-color: #eaece3; margin-top:10px">
                         <p>Login</p>
                         <div class="col-md-12">
-                            <input type="text" placeholder="Username" name="username" id="username">
+                          
+                            <input type="text" placeholder="Username" name="username" id="username" value="{{$userid->name}}">
 
                         </div>
                         <div class="col-md-12">
-                            <input type="text" placeholder="Password" name="password" id="password">
+                            <input type="password" placeholder="Password" name="password" id="password"value="{{$userid->password}}">
 
                         </div>
                         <div class="col-md-12">
@@ -289,7 +293,7 @@
             <div class="row">
                 <div class="col-md-4">
                   <div class="card mb-4 box-shadow d411 " >
-                    <a href="{{url('/montgomeryimg')}}"> <img class="card-img-top d411" src="https://secureservercdn.net/198.71.233.183/mb5.bfe.myftpupload.com/wp-content/uploads/2022/03/b3ad365b-b1ff-4a9b-9e6f-b2b201fdaab7-400x314.jpeg"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD 150 /night</p>
+                    <a href="{{url('/montgomeryimg')}}"> <img class="card-img-top d411" src="https://secureservercdn.net/198.71.233.183/mb5.bfe.myftpupload.com/wp-content/uploads/2022/03/b3ad365b-b1ff-4a9b-9e6f-b2b201fdaab7-400x314.jpeg"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD {{$value->title->feacture->price_per_night}} /night</p>
                     <div class="card-body d412" >
                       <p class="card-text  d49" >Vibrant 1BR at 79 Commerce</p>
                        <i class="fa fa-map-marker" aria-hidden="true"></i><div style="font-size: 14px; color: darkgray; margin-top: -24px; margin-left: 21px;">Downtowns, Montgomery, Montgomery</div>
@@ -301,7 +305,7 @@
                 </div>
                 <div class="col-md-4">
                   <div class="card mb-4 box-shadow d411 ">
-                    <a href="{{url('/montgomeryimg')}}"> <img class="card-img-top d411" src="https://secureservercdn.net/198.71.233.183/mb5.bfe.myftpupload.com/wp-content/uploads/2015/04/05-400x314.jpeg" alt="Card image cap"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD 150 /night</p>
+                    <a href="{{url('/montgomeryimg')}}"> <img class="card-img-top d411" src="https://secureservercdn.net/198.71.233.183/mb5.bfe.myftpupload.com/wp-content/uploads/2015/04/05-400x314.jpeg" alt="Card image cap"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD {{$value->title->feacture->price_per_night}} /night</p>
                     <div class="card-body d412 ">
                      
                          <p class="card-text d49 " >Cozy 1BR at 79 Commerce</p>
@@ -315,7 +319,7 @@
                 </div>
                 <div class="col-md-4">
                   <div class="card mb-4 box-shadow d411 ">
-                    <a href="{{url('/montgomeryimg')}}"><img class="card-img-top d411 " src="https://secureservercdn.net/198.71.233.183/mb5.bfe.myftpupload.com/wp-content/uploads/2022/03/04-400x314.jpg"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD 150 /night</p>
+                    <a href="{{url('/montgomeryimg')}}"><img class="card-img-top d411 " src="https://secureservercdn.net/198.71.233.183/mb5.bfe.myftpupload.com/wp-content/uploads/2022/03/04-400x314.jpg"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD{{$value->title->feacture->price_per_night}}}/night</p>
                     <div class="card-body d412 " >
       
                       <p class="card-text  d49" >Spacious 1BR at 79 Commerce</p>

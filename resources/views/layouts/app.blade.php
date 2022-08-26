@@ -20,6 +20,7 @@
     <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
   </head>
   <body>
+ 
     <div id="app">
       <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light" id="sidenav-main">
         <div class="scrollbar-inner">
@@ -116,7 +117,9 @@
                   <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                       <span class="avatar avatar-sm rounded-circle">
-                        <img alt="Image placeholder" src="{{ asset('admin_assets/img/brand/profile.png') }}">
+                        <img src="{{asset('uploads/students/'.Auth::user()->image)}}" width="50px" height="50px">
+                        {{-- <img alt="Image placeholder" src="{{asset('uploads/students/'. Auth::user()->image}}"width="50px" height="50px"> --}}
+                 
                       </span>
                       
                       <div class="media-body ml-2 d-none d-lg-block">
@@ -127,7 +130,9 @@
 
                   <div class="dropdown-menu dropdown-menu-right ">
                     <div class="dropdown-header noti-title">
-                      <h6 class="text-overflow m-0">Welcome!</h6>
+                      <h6 class="text-overflow m-0">Welcome!  {{Auth::user()->name}} </h6>
+                      {{--{{$data->name}} --}}
+                      
                     </div>
                     
                     <div class="dropdown-divider"></div>
