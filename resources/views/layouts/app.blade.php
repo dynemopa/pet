@@ -117,7 +117,7 @@
                   <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                       <span class="avatar avatar-sm rounded-circle">
-                        <img src="{{asset('uploads/students/'.Auth::user()->image)}}" width="50px" height="50px">
+                        <img src="{{asset('uploads/students/'.Auth::user()->image)}}" style="width: 50px">
                         {{-- <img alt="Image placeholder" src="{{asset('uploads/students/'. Auth::user()->image}}"width="50px" height="50px"> --}}
                  
                       </span>
@@ -130,7 +130,7 @@
 
                   <div class="dropdown-menu dropdown-menu-right ">
                     <div class="dropdown-header noti-title">
-                      <h6 class="text-overflow m-0">Welcome!  {{Auth::user()->name}} </h6>
+                      <h6 class="text-overflow m-0">Welcome!<span style="color: red">  {{Auth::user()->name}}</span> </h6>
                       {{--{{$data->name}} --}}
                       
                     </div>

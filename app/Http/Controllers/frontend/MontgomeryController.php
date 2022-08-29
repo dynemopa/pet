@@ -13,13 +13,15 @@ class MontgomeryController extends Controller
 {
     public function index(Request $request)
     {
-
+       
         if($request!="")
         {
             $bedrooms=$request['bedrooms']?? "";
-            $room=$request['room']?? "";
             $bathrooms=$request['bathrooms']?? "";
-         
+            $room=$request['room']?? "";
+            $price_per_night=$request['price_per_night']?? "";
+           
+           // search by all
             if($bedrooms !="" && $bathrooms !="" && $room!="")
             {
                 $file = file::with( ['title','title.feacture'])->wherehas('title.feacture',function ($query) use ($bathrooms,$bedrooms,$room)
@@ -31,6 +33,17 @@ class MontgomeryController extends Controller
           
                  return view('frontend.montgomery',compact('file'));
             }
+            if($bedrooms !="" && $bathrooms !="")
+            {
+                $file = file::with( ['title','title.feacture'])->wherehas('title.feacture',function ($query) use ($bathrooms,$bedrooms)
+                {
+                        $query->where('bathrooms','=',$bathrooms);
+                        $query->where('bedrooms','=',$bedrooms);
+                 })->get();
+          
+                 return view('frontend.montgomery',compact('file'));
+            }
+            // search by bedrooms
             if($bedrooms !="")
             {
                
@@ -41,6 +54,7 @@ class MontgomeryController extends Controller
                 return view('frontend.montgomery',compact('file'));
            
             }
+              // search by bathrooms
             if($bathrooms !="")
             {
                 $file = file::with( ['title','title.feacture'])->wherehas('title.feacture',function ($query) use ($bathrooms)
@@ -50,11 +64,22 @@ class MontgomeryController extends Controller
             return view('frontend.montgomery',compact('file'));
                  
             }
+             // search by rooms
             if($room !="")
             {
                 $file = file::with( ['title','title.feacture'])->wherehas('title.feacture',function ($query) use ($room)
                 {
                         $query->where('room','=',$room);
+                 })->get();
+            return view('frontend.montgomery',compact('file'));
+                 
+            }
+             // search by price
+            if($price_per_night !="")
+            {
+                $file = file::with( ['title','title.feacture'])->wherehas('title.feacture',function ($query) use ($price_per_night)
+                {
+                        $query->where('price_per_night','=',$price_per_night);
                  })->get();
             return view('frontend.montgomery',compact('file'));
                  
