@@ -50,10 +50,12 @@
     @endif
           <div class="table-responsive">
             <table class="table align-items-center table-dark table-flush">
-              <thead class="thead-dark">
+              <thead style="background-color: #edb2b2">
                 <tr>
-                  <th>Name</th>
-                  <th>email</th>
+                  <th>@sortablelink('name')
+                  </th>
+                  <th>@sortablelink('email') 
+                  </th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -115,7 +117,7 @@
                  
                  
               </tbody>
-            </table>
+           
           </div>
 
           <div class="card-footer py-4">

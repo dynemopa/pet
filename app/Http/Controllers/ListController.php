@@ -18,16 +18,12 @@ class ListController extends Controller
         }
         else
         {
-            $user=User::get();
+            $user=User::sortable()->get();
         }
-   
-    $data= compact('user','search');
-   
-   
-     return  view('frontend.list',($data));
-     
+        $data= compact('user','search');
+        return  view('frontend.list',($data));
     }
-    
+
     public function  delete(Request $request ,$id)
     {
         $User=user::find($id);

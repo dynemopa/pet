@@ -13,7 +13,7 @@ class MontgomeryController extends Controller
 {
     public function index(Request $request)
     {
-       
+      
         if($request!="")
         {
             $bedrooms=$request['bedrooms']?? "";
@@ -25,64 +25,22 @@ class MontgomeryController extends Controller
             if($bedrooms !="" && $bathrooms !="" && $room!="")
             {
                 $file = file::with( ['title','title.feacture'])->wherehas('title.feacture',function ($query) use ($bathrooms,$bedrooms,$room)
-                {
-                        $query->where('bathrooms','=',$bathrooms);
+                { 
+                    if($bedrooms !="")
+                    {
+                        $query->where('bathrooms','=',$bathrooms); 
+                    }
+                    if($bathrooms !="")
+                    {
                         $query->where('bedrooms','=',$bedrooms);
+                    }
+                    if($room!="")
+                    {
                         $query->where('room','=',$room);
-                 })->get();
+                    }
+                     })->get();
           
                  return view('frontend.montgomery',compact('file'));
-            }
-            if($bedrooms !="" && $bathrooms !="")
-            {
-                $file = file::with( ['title','title.feacture'])->wherehas('title.feacture',function ($query) use ($bathrooms,$bedrooms)
-                {
-                        $query->where('bathrooms','=',$bathrooms);
-                        $query->where('bedrooms','=',$bedrooms);
-                 })->get();
-          
-                 return view('frontend.montgomery',compact('file'));
-            }
-            // search by bedrooms
-            if($bedrooms !="")
-            {
-               
-                $file = file::with( ['title','title.feacture'])->wherehas('title.feacture',function ($query) use ($bedrooms)
-                {
-                    $query->where('bedrooms','=',$bedrooms);
-                })->get();
-                return view('frontend.montgomery',compact('file'));
-           
-            }
-              // search by bathrooms
-            if($bathrooms !="")
-            {
-                $file = file::with( ['title','title.feacture'])->wherehas('title.feacture',function ($query) use ($bathrooms)
-                {
-                        $query->where('bathrooms','=',$bathrooms);
-                 })->get();
-            return view('frontend.montgomery',compact('file'));
-                 
-            }
-             // search by rooms
-            if($room !="")
-            {
-                $file = file::with( ['title','title.feacture'])->wherehas('title.feacture',function ($query) use ($room)
-                {
-                        $query->where('room','=',$room);
-                 })->get();
-            return view('frontend.montgomery',compact('file'));
-                 
-            }
-             // search by price
-            if($price_per_night !="")
-            {
-                $file = file::with( ['title','title.feacture'])->wherehas('title.feacture',function ($query) use ($price_per_night)
-                {
-                        $query->where('price_per_night','=',$price_per_night);
-                 })->get();
-            return view('frontend.montgomery',compact('file'));
-                 
             }
             else
             {
@@ -90,23 +48,6 @@ class MontgomeryController extends Controller
                 return view('frontend.montgomery',compact('file'));
             }
         }
-       
-        // $bedrooms=$request['bedrooms']?? "";
-        // $bathrooms=$request['bathrooms']?? "";
-        // if($bedrooms !=" ")
-        // {
-        //    $file = file::with( ['title','title.feacture'])->wherehas('title.feacture',function ($query) use ($bedrooms)
-        //    {
-        //     $query->where('bedrooms','=',$bedrooms);
-        //    })->get();
-        // }
+    } 
 
-        // else
-        // { 
-        //     $file=file::with(['title','title.feacture'])->get(); 
-        // }
-       
-      
-     
-    }
 }

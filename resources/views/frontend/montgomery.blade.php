@@ -147,6 +147,7 @@
          
           <section>
             <p>Listings in "Montgomery"</p>
+          
             @foreach ( $file as $value)
             @php 
             $str1  = str_replace("[","",$value->filenames);
@@ -180,7 +181,8 @@
 
       {{-- MAP DIV --}}
       <div class="col-md-5">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.091620339562!2d77.63270171437962!3d27.49752594128974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3973731c342ccfcd%3A0xe39fe31a55b256f5!2sRatanlal%20Phool%20Katori%20Devi%20School%20Mathura!5e0!3m2!1sen!2sin!4v1659440098553!5m2!1sen!2sin"  height="600" style="border:0; width:100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13478.601003748958!2d-86.31821427722187!3d32.37492671996069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x888e816f1ab8dd59%3A0x72da32f6d2345fa4!2sHampton%20Inn%20%26%20Suites%20Montgomery-Downtown!5e0!3m2!1sen!2sin!4v1661752668234!5m2!1sen!2sin" height="600"  style="border:0;  width:100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.091620339562!2d77.63270171437962!3d27.49752594128974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3973731c342ccfcd%3A0xe39fe31a55b256f5!2sRatanlal%20Phool%20Katori%20Devi%20School%20Mathura!5e0!3m2!1sen!2sin!4v1659440098553!5m2!1sen!2sin"  height="600" style="border:0; width:100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
       </div>
       {{-- MAP DIV END --}}
     </div>

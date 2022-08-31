@@ -16,8 +16,9 @@ class MontgomeryimgController extends Controller
 {
     public function index($files_id)
     {
+        $file1 = file::with( ['title','title.feacture'])->take(3)->get();
         $userid = Auth::user();
         $file=file::with('title','title.feacture')->where('files_id','=',$files_id)->get();
-     return  view('frontend.montgomeryimg', compact('file','userid'));
+     return  view('frontend.montgomeryimg', compact('file','userid','file1'));
     }
 }

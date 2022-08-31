@@ -61,14 +61,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-control-label">Password</label>
                                         <input type="tel" id="password" name="password"  value={{$user->password}}  class="form-control form-control-lg" readonly >
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row">
                                 <div class="col-lg-4">
                                     

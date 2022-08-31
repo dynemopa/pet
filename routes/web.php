@@ -21,6 +21,7 @@ use App\Http\Controllers\ListController;
 use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\GalleryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,6 +54,7 @@ Route::put('/Update-data/{id}',[ListController::class,'update']);
 Route::get('/deletevalidation/{id}',[ ListController::class,'delete']);
 Route::get('/image/', [FileController::class, 'create']);
 Route::post('/file/', [FileController::class, 'store']);
+Route::get('/gallery/{file_id}',[GalleryController::class,'gallery'])->name('gallery');
 
 
 
@@ -81,6 +83,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 	Route::post('/updatelist/{files_id}/{title_id}/{feacture_id}',[ListingController::class,'updatelist'])->name('updatelist');
 
 	Route::get('/showlist/{file_id}',[ListingController::class,'showlist'])->name('showlist');
+
 	
 	 
   

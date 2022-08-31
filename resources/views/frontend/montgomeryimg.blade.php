@@ -21,10 +21,18 @@
     {
         color: black;
     }
+    .demo {
+  opacity: 1;
+}
+.demo:hover {
+  opacity: 0.6;
+}
+
     </style>
   
 
      @foreach ( $file as $value)
+  
      @php
      $sleeping_situation=json_decode($value->title->feacture->sleeping_situation);
      @endphp 
@@ -42,6 +50,7 @@
         $str2  = str_replace("]","",$str1);
         $str3  = str_replace('"','',$str2);
         $str = explode(",",$str3);
+       
       @endphp
 
 
@@ -61,7 +70,7 @@
                 </div>
                 <div class="row" style=" margin-top: 10px;">
                     <div class="col-md-6"><img src="{{asset('uploads/students/'.$str[3])}}" style=" width:100%;height:100%"/></div>
-                    <div class="col-md-6"><img src="{{asset('uploads/students/'.$str[4])}}" style=" width:100%;height:100%"/></div>
+                    <div class="col-md-6">  <a href="{{url('/gallery/')}}/{{$value->files_id}}"><img class="demo" src="{{asset('uploads/students/'.$str[4])}}" style=" width:100%;height:100%;cursor: pointer;"/><p style="color: white; margin-top: -119px;  margin-left: 98px; color:black; font-size:20px"><b>See All Image</b></p></a></div>
 
                 </div>
             </div>
@@ -231,8 +240,8 @@
                                 <label for="vehicle3"> Children Allowed</label><br>
                             </div>
                 </div> 
-           
-
+                @endforeach
+               
                 <div class="col-md-4" style=" margin-top:10px"> 
                     <div class="d113" style="    background-color: #8b6013e0; padding: 11px;">
                         <center><p>USD 150 per night</p></center>
@@ -267,6 +276,7 @@
                     </div>
                     <div style="  padding: 26px; background-color: #eaece3; margin-top:10px">
                         <p>Login</p>
+                        @if (Auth::check())
                         <div class="col-md-12">
                           
                             <input type="text" placeholder="Username" name="username" id="username" value="{{$userid->name}}">
@@ -276,6 +286,18 @@
                             <input type="password" placeholder="Password" name="password" id="password"value="{{$userid->password}}">
 
                         </div>
+                    @else
+                    <div class="col-md-12">
+                          
+                        <input class="from-control"   type="text" placeholder="Username"  autocomplete="off" >
+
+                    </div>
+                    <div class="col-md-12">
+                        <input class="from-control"   type="text" placeholder="password"  autocomplete="off" >
+
+                    </div>
+                    @endif
+                       
                         <div class="col-md-12">
                             <button type="button" class="btn btn-primary" style="width: 100%">Login</button>
                         </div>
@@ -288,53 +310,49 @@
     <div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.2157038971486!2d77.65423771437949!3d27.493666341458304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397371610b6bbc8b%3A0x97268e8ea51f8590!2siQuinceSoft!5e0!3m2!1sen!2sin!4v1659590762544!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
+    
+    
+  
+  
+
+  
+ 
     <div class="container">
-        <div class="col-md-12">
+        <div class="col-md-12 m-4">
+           
             <div class="row">
+                @foreach($file1 as $value1)
+                @php 
+                $str1  = str_replace("[","",$value1->filenames);
+                $str2  = str_replace("]","",$str1);
+                $str3  = str_replace('"','',$str2);
+                $str = explode(",",$str3);
+            @endphp
+               
                 <div class="col-md-4">
+                   
+                   
                   <div class="card mb-4 box-shadow d411 " >
-                    <a href="{{url('/montgomeryimg')}}"> <img class="card-img-top d411" src="https://secureservercdn.net/198.71.233.183/mb5.bfe.myftpupload.com/wp-content/uploads/2022/03/b3ad365b-b1ff-4a9b-9e6f-b2b201fdaab7-400x314.jpeg"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD {{$value->title->feacture->price_per_night}} /night</p>
+                    <a href="{{url('/montgomeryimg')}}/{{$value1->files_id}}"> <img class="card-img-top d411" src="{{asset('uploads/students/'.$str[0])}}"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD {{$value1->title->feacture->price_per_night}} /night</p>
                     <div class="card-body d412" >
-                      <p class="card-text  d49" >Vibrant 1BR at 79 Commerce</p>
-                       <i class="fa fa-map-marker" aria-hidden="true"></i><div style="font-size: 14px; color: darkgray; margin-top: -24px; margin-left: 21px;">Downtowns, Montgomery, Montgomery</div>
+                      <p class="card-text  d49" >{{$value1->title->title}}</p>
+                       <i class="fa fa-map-marker" aria-hidden="true"></i><div style="font-size: 14px; color: darkgray; margin-top: -24px; margin-left: 21px;">{{$value1->title->feacture->address}}</div>
                        <i class="fa fa-home" aria-hidden="true"></i>
                        <div style="font-size: 14px; color: darkgray; margin-top: -24px; margin-left: 21px;">Apartment / Private room</div>
                      
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow d411 ">
-                    <a href="{{url('/montgomeryimg')}}"> <img class="card-img-top d411" src="https://secureservercdn.net/198.71.233.183/mb5.bfe.myftpupload.com/wp-content/uploads/2015/04/05-400x314.jpeg" alt="Card image cap"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD {{$value->title->feacture->price_per_night}} /night</p>
-                    <div class="card-body d412 ">
-                     
-                         <p class="card-text d49 " >Cozy 1BR at 79 Commerce</p>
-                          <i class="fa fa-map-marker" aria-hidden="true"></i><div style="font-size: 14px; color: darkgray; margin-top: -24px; margin-left: 21px;">Downtowns, Montgomery, Montgomery</div>
-                       <i class="fa fa-home" aria-hidden="true"></i>
-                       <div style="font-size: 14px; color: darkgray; margin-top: -24px; margin-left: 21px;">Apartment / Private room</div>
-                     
-                     
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow d411 ">
-                    <a href="{{url('/montgomeryimg')}}"><img class="card-img-top d411 " src="https://secureservercdn.net/198.71.233.183/mb5.bfe.myftpupload.com/wp-content/uploads/2022/03/04-400x314.jpg"></a><p style="color: white; margin-top: -39px;  margin-left: 10px;">USD{{$value->title->feacture->price_per_night}}}/night</p>
-                    <div class="card-body d412 " >
-      
-                      <p class="card-text  d49" >Spacious 1BR at 79 Commerce</p>
-                       <i class="fa fa-map-marker" aria-hidden="true"></i><div style="font-size: 14px; color: darkgray; margin-top: -24px; margin-left: 21px;">Downtowns, Montgomery, Montgomery</div>
-                       <i class="fa fa-home" aria-hidden="true"></i>
-                       <div style="font-size: 14px; color: darkgray; margin-top: -24px; margin-left: 21px;">Apartment / Private room</div>
-                    
-                    </div>
-                  </div>
-                </div>
+                @endforeach
               </div>
+           
+
         </div>
+     
+            
     </div>
+
 </div>
-@endforeach
 
 
   @endsection
